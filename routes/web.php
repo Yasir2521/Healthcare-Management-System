@@ -19,8 +19,6 @@ use App\Http\Controllers\AboutController;
 Route::get('/', function () {
     return view('welcome');
 });
-// Route::get('/',[HomeController::class,'index']);
-// Route::get('/',[HomeController::class,'redirect']);
 Route::get('/home',[HomeController::class,'redirect']);
 Route::get('/about', [AboutController::class, 'about_us'])->name('homepage');
 
@@ -29,7 +27,6 @@ Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
     'verified',
-
 ])->group(function () {
     Route::get('/dashboard', function () {
         return view('dashboard');
