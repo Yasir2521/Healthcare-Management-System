@@ -1,10 +1,10 @@
-<x-guest-layout>
+<!-- <x-guest-layout>
     <x-authentication-card>
         <x-slot name="logo">
             <x-authentication-card-logo />
         </x-slot>
 
-        <x-validation-errors class="mb-4" />
+        <x-validation-errors class="mb-4" /> -->
 
         <form method="POST" action="{{ route('register') }}">
             @csrf
@@ -60,9 +60,9 @@
                 </a>
 
                 <x-button class="ms-4">
-                    {{ __('Register') }}
+                    {{ __('Sign Up') }}
                 </x-button>
             </div>
-        </form>
+        <!-- </form>
     </x-authentication-card>
-</x-guest-layout>
+</x-guest-layout> -->
