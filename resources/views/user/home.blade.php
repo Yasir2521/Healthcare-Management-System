@@ -83,18 +83,13 @@
             <div class="sidebar">
                 <ul>
                     <!-- <li><a href="#">Profile</a></li> -->
-                    <li><a href="{{url('appointment_view')}}">Appointments</a></li>
+                    <li><a href="{{url('appointment_view')}}"> Take Appointments</a></li>
                     <li><a href="#">Medical Records</a></li>
                     <li><a href="#">Prescriptions</a></li>
                     <li><a href="#">Payments</a></li>
                     <li><a href="#">Emergency</a></li>
                 </ul>
             </div>
-            <!-- <div class="main-content">
-                <h2 class="content-heading">Welcome, John Doe!</h2>
-                <p>This is your patient dashboard. You can view your profile information, upcoming appointments, medical records, prescriptions, and make payments here.</p>
-                <p>Feel free to navigate through the sidebar links to access different sections of the dashboard.</p>
-            </div> -->
         </div>
     </div>
     </body>
