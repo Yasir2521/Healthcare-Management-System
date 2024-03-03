@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\AppointmentController;
+use App\Http\Controllers\ScheduleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,9 +26,13 @@ Route::get('/home',[HomeController::class,'redirect']);
 Route::get('/about', [AboutController::class, 'about_us'])->name('homepage');
 Route::get('/appointment_view', [AppointmentController::class, 'addreg']);
 
-Route::get('/delivery', [DeliveryController::class, 'delivery'])->name('delivery');
+// Route::get('/delivery', [DeliveryController::class, 'delivery'])->name('delivery');
 
 
+Route::get('/doctorscheduleview',[ScheduleController::class,'schedule']);
+
+
+Route::post('/upload_schedule',[ScheduleController::class,'store']);
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
