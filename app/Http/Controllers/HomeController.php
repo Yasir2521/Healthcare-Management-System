@@ -22,10 +22,19 @@ class HomeController extends Controller
 
              return view('user.home');
            }
-           else
+           else if(Auth::user()->usertype=='1')
            {
              return view('admin.home');
            }
+           else if(Auth::user()->usertype=='2')
+           {
+             return view('doctor.home');
+           }
+           else if(Auth::user()->usertype=='3')
+           {
+             return view('delivery.home');
+           }
+
 
         }
         else
