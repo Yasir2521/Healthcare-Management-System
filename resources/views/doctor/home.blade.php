@@ -87,7 +87,7 @@
                 <li><a href="#">Appointments</a></li>
                 <li><a href="#">Patient Details</Details></a></li>
                 <li><a href="#">Prescriptions</a></li>
-                <li><a href="#">Schedules</a></li>
+                <li><a href="{{url('doctorscheduleview')}}">Schedules</a></li>
                 <li><a href="#">Emergency</a></li>
             </ul>
         </div>
