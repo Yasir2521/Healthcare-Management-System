@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\AppointmentController;
+use App\Http\Controllers\SubmitAppointmentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,6 +24,9 @@ Route::get('/', function () {
 Route::get('/home',[HomeController::class,'redirect']);
 Route::get('/about', [AboutController::class, 'about_us'])->name('homepage');
 Route::get('/appointment_view', [AppointmentController::class, 'addreg']);
+Route::post('/submit_appointment', [AppointmentController::class, 'store']);
+Route::get('/submit_appointment', [SubmitAppointmentController::class, 'submit']);
+
 
 Route::middleware([
     'auth:sanctum',
