@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DeliveryController;
 use Illuminate\Support\Facades\Route;
 // use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
@@ -21,6 +22,9 @@ Route::get('/', function () {
 });
 Route::get('/home',[HomeController::class,'redirect']);
 Route::get('/about', [AboutController::class, 'about_us'])->name('homepage');
+
+
+Route::get('/delivery', [DeliveryController::class, 'delivery'])->name('delivery');
 
 
 Route::middleware([
