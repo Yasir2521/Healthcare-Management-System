@@ -8,6 +8,8 @@ use App\Http\Controllers\AboutController;
 use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\ScheduleController;
 
+use App\Http\Controllers\AdminController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -24,7 +26,15 @@ Route::get('/', function () {
 });
 Route::get('/home',[HomeController::class,'redirect']);
 Route::get('/about', [AboutController::class, 'about_us'])->name('homepage');
+
+
+Route::get('/add_doctor_view',[AdminController::class,'addview']);
+Route::post('/upload_doctor',[AdminController::class,'upload']);
+Route::get('/add_seminar_view',[AdminController::class,'addseminar']);
+Route::post('/upload_seminar',[AdminController::class,'uploadseminar']);
+
 Route::get('/appointment_view', [AppointmentController::class, 'addreg']);
+
 
 // Route::get('/delivery', [DeliveryController::class, 'delivery'])->name('delivery');
 
@@ -33,6 +43,9 @@ Route::get('/doctorscheduleview',[ScheduleController::class,'schedule']);
 
 
 Route::post('/upload_schedule',[ScheduleController::class,'store']);
+
+
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
@@ -42,6 +55,7 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
+
 // Route::middleware([
 //     'auth:sanctum',
 //     config('jetstream.auth_session'),
