@@ -112,7 +112,7 @@
 								<div class="get-quote">
                                     @if (Route::has('register'))
 
-                                        <a href="{{ route('register') }}" class="btn">Become a member</a>
+                                        <a href="{{ route('register') }}" class="btn">Register Yourself</a>
                                     @endif
 								</div>
 							</div>

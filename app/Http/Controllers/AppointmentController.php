@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 #use Illuminate\Support\Facades\Auth;
 use App\Models\patient_appointment;
+use App\Models\Doctor;
 
 class AppointmentController extends Controller
 {
@@ -36,6 +37,12 @@ class AppointmentController extends Controller
 
         return redirect()->back()->with('message', 'Appointment created successfully');
 
+    }
+
+    public function doctor_view()
+    {
+        $doctor = doctor::all();
+        return view('user.doctorslist',compact('doctor'));
     }
 
 }

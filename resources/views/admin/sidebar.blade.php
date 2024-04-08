@@ -7,6 +7,7 @@
                   <span class="count bg-success"></span>
                 </div>
                 <div class="profile-name">
+                  
                   <h5 class="mb-0 font-weight-normal">Admin Pannel</h5>
 
                 </div>
@@ -57,11 +58,11 @@
             </a>
           </li>
           <li class="nav-item menu-items">
-            <a class="nav-link" href="">
+            <a class="nav-link" href="{{url('add_delivery_view')}}">
               <span class="menu-icon">
                 <i class="mdi mdi-file-document-box"></i>
               </span>
-              <span class="menu-title">Patient</span>
+              <span class="menu-title">Add Delivery Man</span>
             </a>
           </li>
           <li class="nav-item menu-items">
@@ -69,7 +70,31 @@
               <span class="menu-icon">
                 <i class="mdi mdi-file-document-box"></i>
               </span>
-              <span class="menu-title">Appointment List</span>
+              <span class="menu-title">Patient list</span>
+            </a>
+          </li>
+          <li class="nav-item menu-items">
+            <a class="nav-link" href="{{url('doctor_view')}}">
+              <span class="menu-icon">
+                <i class="mdi mdi-file-document-box"></i>
+              </span>
+              <span class="menu-title">Doctors List</span>
+            </a>
+          </li>
+          <li class="nav-item menu-items">
+            <a class="nav-link" href="">
+              <span class="menu-icon">
+                <i class="mdi mdi-file-document-box"></i>
+              </span>
+              <span class="menu-title">Delivery Man List</span>
+            </a>
+          </li>
+          <li class="nav-item menu-items">
+            <a class="nav-link" href="">
+              <span class="menu-icon">
+                <i class="mdi mdi-file-document-box"></i>
+              </span>
+              <span class="menu-title">Payment Due</span>
             </a>
           </li>
           <li class="nav-item menu-items">

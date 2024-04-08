@@ -2,24 +2,83 @@
 <html lang="en">
   <head>
     <style type="text/css">
-        label
-        {
-            display: inline-block;
-            width: 200px;
-        }
-    </style>
+        .container-fluid {
+    padding: 20px;
+}
+
+.alert {
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: .25rem;
+}
+
+.alert-success {
+    color: #155724;
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+}
+
+form {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+form label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+form input[type="text"],
+form input[type="file"],
+form select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box; /* Ensures padding and border are included in width */
+}
+
+form input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+form input[type="submit"]:hover {
+    background-color: #218838;
+}
+
+a {
+    display: inline-block;
+    margin-top: 10px;
+    color: #007bff;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #0056b3;
+}
+
+</style>
 
    @include('admin.css')
    
   </head>
   <body>
     <div class="container-scroller">
+      @include('admin.sidebar')
       <div class="row p-0 m-0 proBanner" id="proBanner">
         <div class="col-md-12 p-0 m-0">
           <div class="card-body card-body-padding d-flex align-items-center justify-content-between">
             <div class="ps-lg-1">
               <div class="d-flex align-items-center justify-content-between">
-                <p class="mb-0 font-weight-medium me-3 buy-now-text">Free 24/7 customer support, updates, and more with this template!</p>
+                <p class="mb-0 font-weight-medium me-3 buy-now-text">Free 24/7 customer support, updates</p>
                 <a href="https://www.bootstrapdash.com/product/corona-free/?utm_source=organic&utm_medium=banner&utm_campaign=buynow_demo" target="_blank" class="btn me-2 buy-now-btn border-0">Get Pro</a>
               </div>
             </div>
@@ -36,7 +95,7 @@
   
    
       
-      @include('admin.navbar')
+      <!-- @include('admin.navbar') -->
         <!-- partial -->
 
       
@@ -70,11 +129,11 @@
                     <label>Speciality</label>
                     <select>
                         <option>--Select</option>
-                        <option value="Heart">Heart</option>
-                        <option value="Skin">Skin</option>
-                        <option value="Eye">Eye</option>
-                        <option value="Brain">Brain</option>
-                        <option value="Medicine">Medicine</option>
+                        <option value="Heart">Accident and Emergency</option>
+                        <option value="Skin">Cancer Care</option>
+                        <option value="Eye">Cardiology</option>
+                        <option value="Brain">Dental and Maxillofacial Surgery</option>
+                        <option value="Medicine">Dialysis</option>
 
                     </select>
 

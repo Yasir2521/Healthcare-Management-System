@@ -7,7 +7,7 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #2ecc71;
+            background-color: yellow, white, yellow;
             margin: 0;
             padding: 0;
             display: flex;
@@ -53,7 +53,7 @@
 </head>
 <body>
     <div class="register-container">
-        <h2 style="text-align: center;">Register</h2>
+        <h2 style="text-align: center;">Registration</h2>
         <form method="POST" action="{{ route('register') }}">
             @csrf
             <div class="form-group">

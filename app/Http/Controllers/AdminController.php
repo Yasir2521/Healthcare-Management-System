@@ -47,4 +47,10 @@ class AdminController extends Controller
     $seminar->save();
     return redirect()->back()->with('message','Seminar Details Added Successfully');
     }
+
+    public function add_delivery_view()
+    {
+        return view('admin.add_delivery');
+    }
+    
 }

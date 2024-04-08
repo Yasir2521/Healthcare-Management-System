@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
+use App\Models\Doctor;
 
 
 
@@ -19,12 +20,14 @@ class HomeController extends Controller
         {
            if(Auth::user()->usertype=='0')
            {
+            $doctor = doctor::all();
 
-             return view('user.home');
+             return view('user.home',compact('doctor'));
            }
            else if(Auth::user()->usertype=='1')
            {
-             return view('admin.home');
+            $doctor = doctor::all();
+             return view('admin.home',compact('doctor'));
            }
            else if(Auth::user()->usertype=='2')
            {
@@ -45,6 +48,8 @@ class HomeController extends Controller
 
     // public function index()
     // {
-    //   return view('user.home');
+    //   $doctor = doctor::all();
+
+    //   return view('user.home',compact('doctor'));
     // }
 }
