@@ -62,9 +62,11 @@
             @endif
     <h1>Create Doctor Schedule</h1>
     <form action="{{url('upload_schedule')}}" method="post" enctype="multipart/form-data">
+        
 
       @csrf
-        
+
+
         <label for="specialty">Specialty:</label>
         <input type="text" id="specialty" name="specialty" placeholder="Enter Speciality" required>
         <label>Appointment Days:</label>

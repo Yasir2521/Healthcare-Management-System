@@ -66,11 +66,11 @@
             </a>
           </li>
           <li class="nav-item menu-items">
-            <a class="nav-link" href="">
+            <a class="nav-link" href="{{url('appoint_view')}}">
               <span class="menu-icon">
                 <i class="mdi mdi-file-document-box"></i>
               </span>
-              <span class="menu-title">Patient list</span>
+              <span class="menu-title">Patient Appointment List</span>
             </a>
           </li>
           <li class="nav-item menu-items">
