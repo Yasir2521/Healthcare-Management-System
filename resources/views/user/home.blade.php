@@ -178,8 +178,8 @@
         <a href="/teacher-dashboard"><i class="fas fa-desktop"></i><span>Dashboard</span></a>
         <a href="{{url('appointment_view')}}"><i class="fas fa-chalkboard-teacher"></i><span>Take Appointments</span></a>
         <a href="{{url('doctor_view')}}"><i class="fas fa-address-card"></i><span>Doctor's List</span></a>
-        <a href="/admin-notice"><i class="fas fa-bullhorn"></i><span>Prescriptions</span></a>
-        <a href="/admin-notice"><i class="fas fa-bullhorn"></i><span>Payments</span></a>
+        <a href="{{url('schedule_view')}}"><i class="fas fa-bullhorn"></i><span>Doctor's Schedule</span></a>
+        <a href="{{url('seminar_view')}}"><i class="fas fa-bullhorn"></i><span>Seminar</span></a>
         <a href="/admin-notice"><i class="fas fa-bullhorn"></i><span>Emergency</span></a>
         <a href="{{url('review_view')}}"><i class="fas fa-bullhorn"></i><span>Give Reviews</span></a>
     

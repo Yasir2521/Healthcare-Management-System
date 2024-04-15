@@ -6,9 +6,13 @@ use Illuminate\Http\Request;
 #use Illuminate\Support\Facades\Auth;
 use App\Models\patient_appointment;
 use App\Models\Doctor;
+use App\Models\User;
+use App\Models\Schedule;
+use App\Models\seminar;
 
 class AppointmentController extends Controller
 {
+
     public function addreg( )
     {
         
@@ -44,5 +48,24 @@ class AppointmentController extends Controller
         $doctor = doctor::all();
         return view('user.doctorslist',compact('doctor'));
     }
+
+    public function appoint_view()
+    {
+        $appointment = patient_appointment::with('user')->get();
+        return view('user.appointlist',compact('appointment'));
+    }
+
+    public function schedule_view()
+    {
+        $schedule = Schedule::with('user')->get();
+        return view('user.schedulelist',compact('schedule'));
+    }
+
+    public function seminar_view()
+    {
+        $seminar = seminar::all();
+        return view('user.seminarlist',compact('seminar'));
+    }
+    
 
 }

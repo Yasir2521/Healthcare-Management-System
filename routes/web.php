@@ -48,6 +48,9 @@ Route::get('/appointment_view', [AppointmentController::class, 'addreg']);
 Route::post('/submit_appointment', [AppointmentController::class, 'store']);
 Route::get('/submit_appointment', [SubmitAppointmentController::class, 'submit']);
 Route::get('/doctor_view', [AppointmentController::class, 'doctor_view']);
+Route::get('/appoint_view', [AppointmentController::class, 'appoint_view']);
+Route::get('/schedule_view', [AppointmentController::class, 'schedule_view']);
+Route::get('/seminar_view', [AppointmentController::class, 'seminar_view']);
 
 
 

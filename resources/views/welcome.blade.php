@@ -63,9 +63,6 @@
               <h1 class="white">Welcome to Health Care Management System</h1>
               <p>Our platform is designed to streamline and optimize healthcare processes, providing efficient management solutions for healthcare facilities and practitioners.</p>
             </div>
-            <div class="overlay-detail text-center">
-              <a href="#service"><i class="fa fa-angle-down"></i></a>
-            </div>
           </div>
         </div>
       </div>
