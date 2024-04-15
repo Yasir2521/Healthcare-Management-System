@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\seminar;
 
 class AboutController extends Controller
 {
@@ -10,5 +11,13 @@ class AboutController extends Controller
     {
         return view('about.home');
     }
+
+    public function seminar()
+    {
+        $seminar = seminar::all();
+        return view('user.seminarlistanother',compact('seminar'));
+    }
+
+    
 }
 

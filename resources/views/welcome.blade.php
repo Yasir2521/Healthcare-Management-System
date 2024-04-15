@@ -45,6 +45,10 @@
 
                             <li class=""><a href="{{ route('homepage') }}">About Us</a></li>
                         @endif
+                        @if (Route::has('seminar'))
+
+                            <li class=""><a href="{{url('seminar')}}">Seminars</a></li>
+                        @endif
                     @endauth
                 @endif
             

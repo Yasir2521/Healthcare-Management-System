@@ -42,6 +42,7 @@ Route::get('/doctor_view', [AppointmentController::class, 'doctor_view']);
 Route::get('/appoint_view', [AppointmentController::class, 'appoint_view']);
 Route::get('/schedule_view', [AppointmentController::class, 'schedule_view']);
 Route::get('/seminar_view', [AppointmentController::class, 'seminar_view']);
+Route::get('/seminar', [AboutController::class, 'seminar'])->name('seminar');
 
 
 
