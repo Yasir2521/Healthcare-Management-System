@@ -181,6 +181,8 @@
         <a href="/admin-notice"><i class="fas fa-bullhorn"></i><span>Prescriptions</span></a>
         <a href="/admin-notice"><i class="fas fa-bullhorn"></i><span>Payments</span></a>
         <a href="/admin-notice"><i class="fas fa-bullhorn"></i><span>Emergency</span></a>
+        <a href="{{url('review_view')}}"><i class="fas fa-bullhorn"></i><span>Give Reviews</span></a>
+    
     </div>
 
         <!-- Content goes here -->
