@@ -98,6 +98,14 @@
             </a>
           </li>
           <li class="nav-item menu-items">
+            <a class="nav-link" href="{{url('add_blood_view')}}">
+              <span class="menu-icon">
+                <i class="mdi mdi-file-document-box"></i>
+              </span>
+              <span class="menu-title">Blood Bank</span>
+            </a>
+          </li>
+          <li class="nav-item menu-items">
             <a class="nav-link" href="{{url('add_seminar_view')}}">
               <span class="menu-icon">
                 <i class="mdi mdi-file-document-box"></i>

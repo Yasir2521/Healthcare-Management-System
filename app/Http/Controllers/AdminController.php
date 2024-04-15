@@ -6,7 +6,11 @@ use Illuminate\Http\Request;
 use App\Models\Doctor;
 use App\Models\seminar;
 
+
 use App\Models\medi;
+
+use App\Models\Blood;
+
 class AdminController extends Controller
 {
     public function addview()
@@ -52,6 +56,25 @@ class AdminController extends Controller
     public function add_delivery_view()
     {
         return view('admin.add_delivery');
+    
+    }
+
+    public function addblood()
+    {
+        return view('admin.add_blood');
+    }
+
+    public function uploadblood(Request $request)
+    {
+        $blood = new blood; 
+    
+    $blood->name=$request->name;
+    $blood->email=$request->email;
+    $blood->type=$request->type;
+    $blood->phone=$request->number;
+
+    $blood->save();
+    return redirect()->back()->with('message','Blood Added Successfully');
     }
 
     public function add_medicine_view()

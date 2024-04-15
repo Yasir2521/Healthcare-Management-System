@@ -181,6 +181,8 @@
         <a href="{{url('schedule_view')}}"><i class="fas fa-bullhorn"></i><span>Doctor's Schedule</span></a>
         <a href="{{url('seminar_view')}}"><i class="fas fa-bullhorn"></i><span>Seminar</span></a>
         <a href="/admin-notice"><i class="fas fa-bullhorn"></i><span>Emergency</span></a>
+        <a href="{{url('review_view')}}"><i class="fas fa-bullhorn"></i><span>Give Reviews</span></a>
+    
     </div>
 
         <!-- Content goes here -->
