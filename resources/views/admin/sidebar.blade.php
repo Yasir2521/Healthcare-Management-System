@@ -105,5 +105,13 @@
               <span class="menu-title">Seminar</span>
             </a>
           </li>
+          <li class="nav-item menu-items">
+            <a class="nav-link" href="{{url('add_medicine_view')}}">
+              <span class="menu-icon">
+                <i class="mdi mdi-file-document-box"></i>
+              </span>
+              <span class="menu-title">MedicineInfo</span>
+            </a>
+          </li>
         </ul>
       </nav>

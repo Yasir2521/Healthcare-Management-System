@@ -42,6 +42,8 @@ Route::get('/doctor_view', [AppointmentController::class, 'doctor_view']);
 Route::get('/appoint_view', [AppointmentController::class, 'appoint_view']);
 Route::get('/schedule_view', [AppointmentController::class, 'schedule_view']);
 Route::get('/seminar_view', [AppointmentController::class, 'seminar_view']);
+Route::get('/add_medicine_view',[AdminController::class,'add_medicine_view']);
+Route::post('/upload_medicine',[AdminController::class,'upload_medicine']);
 
 
 

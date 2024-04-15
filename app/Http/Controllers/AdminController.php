@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Doctor;
 use App\Models\seminar;
 
+use App\Models\medi;
 class AdminController extends Controller
 {
     public function addview()
@@ -52,5 +53,37 @@ class AdminController extends Controller
     {
         return view('admin.add_delivery');
     }
+
+    public function add_medicine_view()
+    {
+        return view('admin.add_medicine');
+    }
+   
+    public function upload_medicine(Request $request)
+    {
+        $add_medicine = new medi();
+
+    // Handle file upload
+    $image = $request->file('file');
+    $imageName = time().'.'.$image->getClientOriginalExtension();
+    $image->move(public_path('medicine_images'), $imageName);
     
+    // Store form data in database
+    $add_medicine->name = $request->name;
+    $add_medicine->power = $request->power;
+    $add_medicine->type = $request->type;
+    $add_medicine->manufacture_date = $request->manufacture_date;
+    $add_medicine->expiry_date = $request->expiry_date;
+    $add_medicine->disease_type = $request->disease_type;
+    
+    $add_medicine->image_path = $imageName; // Assuming the image path is stored in the 'image_path' column
+
+    $add_medicine->save();
+
+    // Redirect back with success message
+    return redirect()->back()->with('message', 'Medicine added successfully');
+    }
+
+
+
 }
