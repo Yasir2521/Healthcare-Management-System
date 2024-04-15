@@ -99,6 +99,7 @@ input[type="submit"]:hover {
             <div class="form-group">
                 <label for="sex">Sex</label>
                 <select id="sex" name="sex" required>
+                    <option value="" disabled selected>Select User Category</option>
                     <option value="Male">Male</option>
                     <option value="Female">Female</option>
                 </select>
@@ -106,6 +107,7 @@ input[type="submit"]:hover {
             <div class="form-group">
                 <label for="specialty">Specialty for consultation</label>
                 <select id="specialty" name="specialty" required>
+                    <option value="" disabled selected>Select User Category</option>
                     <option value="Accident and Emergency">Accident and Emergency</option>
                     <option value="Cancer Care">Cancer Care</option>
                     <option value="Cardiology">Cardiology</option>
