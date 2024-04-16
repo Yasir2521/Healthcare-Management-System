@@ -9,6 +9,9 @@ use App\Models\Doctor;
 use App\Models\User;
 use App\Models\Schedule;
 use App\Models\seminar;
+use App\Models\Blood;
+use App\Models\medi;
+use App\Models\Reviwe;
 
 class AppointmentController extends Controller
 {
@@ -65,6 +68,24 @@ class AppointmentController extends Controller
     {
         $seminar = seminar::all();
         return view('user.seminarlist',compact('seminar'));
+    }
+
+    public function blood_view()
+    {
+        $blood = blood::all();
+        return view('user.bloodlist',compact('blood'));
+    }
+
+    public function medicine_view()
+    {
+        $add_medicine = medi::all();
+        return view('user.medicinelist',compact('add_medicine'));
+    }
+
+    public function review_view()
+    {
+        $reviwe = reviwe::all();
+        return view('user.reviewlist',compact('reviwe'));
     }
     
 

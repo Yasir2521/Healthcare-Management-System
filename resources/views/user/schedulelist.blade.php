@@ -7,53 +7,62 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Doctor's Schedule</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f5f5f5; /* Optional: Set a background color */
-            margin: 0;
-            padding: 0;
-        }
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5; /* Optional: Set a background color */
+    margin: 0;
+    padding: 0;
+}
 
-        .container {
-            margin: 50px auto;
-            width: 80%;
-            background-color: #ffffff;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-        }
+.container {
+    margin: 50px auto;
+    width: 80%;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
-        .table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        .table th, .table td {
-            padding: 8px;
-            border: 1px solid #dddddd;
-            text-align: left;
-        }
-
-        .table th {
-            background-color: #f2f2f2;
-        }
-
-        .table tbody tr:hover {
-            background-color: #f5f5f5;
-        }
-        .button {
+.button {
     display: inline-block;
-    background-color: #007bff;
-    color: #ffffff;
+    background-color: #007bff; /* Blue */
+    color: #ffffff; /* Text color */
     text-decoration: none;
     padding: 10px 20px;
     border-radius: 5px;
     transition: background-color 0.3s;
+    margin-top: 20px; /* Add margin for spacing */
 }
 
 .button:hover {
-    background-color: #0056b3;
+    background-color: #0056b3; /* Darker Blue on Hover */
 }
+
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table th, .table td {
+    padding: 8px;
+    border: 1px solid #dddddd;
+    text-align: left;
+}
+
+.table th {
+    background-color: #ba68c8; /* Violet */
+    color: white; /* Text color */
+}
+
+.table tbody tr:hover {
+    background-color: #e1bee7; /* Light Violet */
+}
+
+
 
     </style>
 </head>
