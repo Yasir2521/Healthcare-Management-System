@@ -69,6 +69,7 @@
                 <th>Email</th> <!-- Change to the appropriate field -->
                 <th>Type</th> <!-- Change to the appropriate field -->
                 <th>Phone Number</th>
+                <th>Action</th>
                  
                 
             </tr>
@@ -80,6 +81,7 @@
                     <td>{{ $bloods->email }}</td>
                     <td>{{ $bloods->type }}</td>
                     <td>{{ $bloods->phone }}</td>
+                    <td><button class="button">Request Blood</button></td>
                     
                     <!-- Add more columns as needed -->
                 </tr>

@@ -15,6 +15,7 @@
     max-width: 800px;
     margin: 0 auto;
     padding: 20px;
+    position: relative; /* Position relative for centering */
   }
   table {
     width: 100%;
@@ -26,30 +27,44 @@
     border-bottom: 1px solid #ddd;
   }
   th {
-    background-color: #007bff;
+    background-color: #ff6f61; /* Coral red */
     color: white;
   }
   tr:nth-child(even) {
-    background-color: #f2f2f2;
+    background-color: #ffd166; /* Yellow */
   }
   tr:hover {
-    background-color: #ddd;
+    background-color: #ffb703; /* Orange */
   }
-  .doctor-image {
-    width: 100px;
-    height: auto;
+  .go-back-container {
+    text-align: center; /* Center align the button */
+    margin-top: 20px; /* Add some space from the table */
   }
   .go-back-link {
     display: inline-block;
     padding: 10px 20px;
-    background-color: #007bff;
+    background-color: #ff6f61; /* Red */
     color: #fff;
     text-decoration: none;
     border-radius: 4px;
     transition: background-color 0.3s ease;
   }
   .go-back-link:hover {
-    background-color: #0056b3;
+    background-color: #e63946; /* Darker red */
+  }
+  
+  /* Button-like styling for order medicine link */
+  .order-medicine-link {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff; /* Blue */
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+  }
+  .order-medicine-link:hover {
+    background-color: #0056b3; /* Darker blue */
   }
 </style>
 </head>
@@ -64,26 +79,28 @@
         <th>Type</th>
         <th>Manufacture Date</th>
         <th>Expiry Date</th>
-
+        <th>Action</th>
       </tr>
     </thead>
     <tbody>
+      <!-- Assuming $add_medicine is an array or iterable -->
       @foreach ($add_medicine as $add_medicines)
       <tr>
-        
         <td>{{ $add_medicines->name }}</td>
         <td>{{ $add_medicines->power }}</td>
         <td>{{ $add_medicines->type }}</td>
         <td>{{ $add_medicines->manufacture_date }}</td>
         <td>{{ $add_medicines->expiry_date }}</td>
-        
+        <td><a href="#" class="order-medicine-link">Order Medicine</a></td> <!-- Added class for button-like styling -->
       </tr>
       @endforeach
     </tbody>
   </table>
   
-  <!-- Button to go back -->
-  <a href="{{ url('/home') }}" class="go-back-link">&larr; Go Back</a>
+  <!-- Centered Go Back button -->
+  <div class="go-back-container">
+    <a href="{{ url('/home') }}" class="go-back-link">&larr; Go Back</a>
+  </div>
 </div>
 
 </body>
