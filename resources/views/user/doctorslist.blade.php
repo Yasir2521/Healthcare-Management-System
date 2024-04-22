@@ -79,10 +79,11 @@ tr:hover {
   background-color: #ffccbc; /* Light Orange */
 }
 
+
+
 .go-back-link:hover {
   background-color: #388e3c; /* Dark Green */
 }
-
 .container {
   max-width: 800px;
   margin: 0 auto;
@@ -102,6 +103,7 @@ tr:hover {
   transition: background-color 0.3s ease;
   margin-top: 20px; /* Add some margin for spacing */
 }
+
 </style>
 </head>
 <body>
@@ -114,24 +116,16 @@ tr:hover {
         <th>Name</th>
         <th>Phone</th>
         <th>Email</th>
-        <th>Actions</th> <!-- Added a new column for actions -->
       </tr>
     </thead>
     <tbody>
-      @foreach ($schedule as $schedules)
-        <tr>
-          <td>
-            @if ($schedules->user)
-              {{ $schedules->user->name }}
-            @else
-              No User Assigned
-            @endif
-          </td>
-          <td>{{ $schedules->specialty }}</td>
-          <td>{{ $schedules->appointment_days }}</td>
-          <td>{{ $schedules->time }}</td>
-          <td><a href="#" class="button">Take Appointment</a></td> <!-- Changed to anchor tag for better visibility -->
-        </tr>
+      @foreach ($doctor as $doctors)
+      <tr>
+        <td><img src="doctorimage/{{$doctors->image}}" alt="Doctor Image" class="doctor-image"></td>
+        <td>{{ $doctors->name }}</td>
+        <td>{{ $doctors->phone }}</td>
+        <td><a href="mailto:{{ $doctors->email }}">{{ $doctors->email }}</a></td>
+      </tr>
       @endforeach
     </tbody>
   </table>
