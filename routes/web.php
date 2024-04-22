@@ -34,6 +34,8 @@ Route::get('/add_delivery_view',[AdminController::class,'add_delivery_view']);
 Route::get('/add_doctor_view',[AdminController::class,'addview']);
 
 Route::post('/upload_doctor',[AdminController::class,'upload']);
+Route::get('/add_deliveryman_view',[AdminController::class,'add_del_view']);
+Route::post('/upload_deliveryman',[AdminController::class,'add_deliveryman']);
 Route::get('/add_seminar_view',[AdminController::class,'addseminar']);
 Route::post('/upload_seminar',[AdminController::class,'uploadseminar']);
 
