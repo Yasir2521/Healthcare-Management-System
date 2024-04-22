@@ -55,9 +55,9 @@ Route::get('/seminar', [AboutController::class, 'seminar'])->name('seminar');
 Route::get('/blood_view', [AppointmentController::class, 'blood_view']);
 Route::get('/medicine_view', [AppointmentController::class, 'medicine_view']);
 Route::get('/see_review_view', [AppointmentController::class, 'review_view']);
-
 Route::get('/add_medicine_view',[AdminController::class,'add_medicine_view']);
 Route::post('/upload_medicine',[AdminController::class,'upload_medicine']);
+
 
 Route::get('/add_hospital_view',[AdminController::class,'add_hospital_view']);
 Route::post('/upload_hospital',[AdminController::class,'upload_hospital']);
@@ -65,6 +65,13 @@ Route::post('/upload_hospital',[AdminController::class,'upload_hospital']);
 Route::get('/add_transportation', [AdminController::class, 'add_transportation']);
 
 Route::post('/upload_transportation', [AdminController::class, 'upload_transportation']);
+
+Route::get('/add_appoin',[AdminController::class,'add_appoin']);
+Route::post('/upload_appoin',[AdminController::class,'upload_appoin']);
+
+Route::get('/blooddelivery',[AdminController::class,'add_blooddelivery_view']);
+Route::post('/upload_blooddelivery',[AdminController::class,'upload_blooddelivery']);
+
 
 
 

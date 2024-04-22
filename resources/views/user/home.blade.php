@@ -22,7 +22,11 @@
         color: #fff;
         margin: 0;
         text-transform: uppercase;
+
         font-size: 20px;
+
+        font-size: 21px;
+
         font-weight: 700;
         letter-spacing: 2px;
         }

@@ -27,11 +27,13 @@ class ScheduleController extends Controller
         ]);
 
         // Create a new DoctorSchedule instance
+        $user = auth()->user();
         $schedule = new Schedule();
         $schedule->specialty = $validatedData['specialty'];
         $schedule->appointment_days = json_encode($validatedData['appointment_days']); // Convert array to JSON string
         $schedule->date = $validatedData['date'];
         $schedule->time = $validatedData['time'];
+        $schedule->id = $user->id;
 
         // Save the schedule to the database
         $schedule->save();

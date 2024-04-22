@@ -1,12 +1,18 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Http\Request;
 use App\Models\Doctor;
 use App\Models\seminar;
+
 use App\Models\hospital;
 use App\Models\vehicle;
+
+
+use App\Models\blooddelivery;
+use App\Models\User;
 
 
 use App\Models\medi;
@@ -164,6 +170,39 @@ class AdminController extends Controller
     return redirect()->back()->with('message', 'Hospital added successfully');
     }
 
+
+
+
+    public function add_blooddelivery_view()
+    {
+        return view('admin.blooddelivery');
+    }
+   
+    public function upload_blooddelivery(Request $request)
+    {
+        $user = auth()->user();
+        $blooddelivery = new blooddelivery();
+
+    // Handle file upload
+    
+    
+    // Store form data in database
+    $blooddelivery->id = $user->id;
+    $blooddelivery->user_id = $user->id;
+    $blooddelivery->email = $request->email;
+    $blooddelivery->address = $request->address;
+    
+
+    $blooddelivery->save();
+
+    // Redirect back with success message
+    return redirect()->back()->with('message', 'Blood Ordered successfully');
+    }
+
+    public function add_appoin()
+    {
+        return view('user.add_appoin');
+    }
 
 
 

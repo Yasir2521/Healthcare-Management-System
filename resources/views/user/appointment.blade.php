@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,6 +8,9 @@
         <link rel="stylesheet" href="appointment.css">
         <style>
             /* CSS for Appointment Form */
+
+            <style>
+    /* CSS for Appointment Form */
 
     body {
         font-family: Arial, sans-serif;
@@ -29,6 +31,7 @@
     h1 {
         text-align: center;
         color: #333;
+        margin-bottom: 30px;
     }
 
     form {
@@ -38,18 +41,19 @@
     label {
         font-weight: bold;
         display: block;
-        margin-bottom: 5px;
+        margin-bottom: 8px;
         color: #333;
     }
 
     input[type="text"],
-    input[type="number"],
+    input[type="tel"],
     select {
         width: 100%;
-        padding: 10px;
-        margin-bottom: 15px;
+        padding: 12px;
+        margin-bottom: 20px;
         border: 1px solid #ccc;
         border-radius: 5px;
+        box-sizing: border-box; /* Ensure padding and border are included in width */
     }
 
     select {
@@ -62,7 +66,7 @@
 
     input[type="submit"] {
         width: 100%;
-        padding: 10px;
+        padding: 12px;
         background-color: #007bff;
         color: #fff;
         border: none;
@@ -74,6 +78,24 @@
     input[type="submit"]:hover {
         background-color: #0056b3;
     }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    a {
+        display: inline-block;
+        color: #007bff;
+        text-decoration: none;
+        font-weight: bold;
+        transition: color 0.3s;
+    }
+
+    a:hover {
+        color: #0056b3;
+    }
+</style>
+
     </style>
 </head>
 <body>
