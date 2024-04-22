@@ -51,6 +51,14 @@ Route::get('/doctor_view', [AppointmentController::class, 'doctor_view']);
 Route::get('/appoint_view', [AppointmentController::class, 'appoint_view']);
 Route::get('/schedule_view', [AppointmentController::class, 'schedule_view']);
 Route::get('/seminar_view', [AppointmentController::class, 'seminar_view']);
+Route::get('/seminar', [AboutController::class, 'seminar'])->name('seminar');
+Route::get('/blood_view', [AppointmentController::class, 'blood_view']);
+Route::get('/medicine_view', [AppointmentController::class, 'medicine_view']);
+Route::get('/see_review_view', [AppointmentController::class, 'review_view']);
+
+Route::get('/add_medicine_view',[AdminController::class,'add_medicine_view']);
+Route::post('/upload_medicine',[AdminController::class,'upload_medicine']);
+
 
 
 

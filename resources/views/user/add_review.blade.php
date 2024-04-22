@@ -10,7 +10,7 @@
         /* Set background image */
         body {
             background-color: black;
-            background-image: url('');
+            background-image: url('img/mission-img.jpg');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -79,7 +79,7 @@
 
         /* Style for the submit button */
         .submit-button {
-            background-color: #4CAF50;
+            background-color: #CACFD2;
             color: while;
             padding: 10px 20px;
             border: none;

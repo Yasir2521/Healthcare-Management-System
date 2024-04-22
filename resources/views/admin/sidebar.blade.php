@@ -57,14 +57,14 @@
               <span class="menu-title">Add Doctors</span>
             </a>
           </li>
-          <li class="nav-item menu-items">
+          <!-- <li class="nav-item menu-items">
             <a class="nav-link" href="{{url('add_delivery_view')}}">
               <span class="menu-icon">
                 <i class="mdi mdi-file-document-box"></i>
               </span>
               <span class="menu-title">Add Delivery Man</span>
             </a>
-          </li>
+          </li> -->
           <li class="nav-item menu-items">
             <a class="nav-link" href="{{url('appoint_view')}}">
               <span class="menu-icon">
@@ -81,28 +81,28 @@
               <span class="menu-title">Doctors List</span>
             </a>
           </li>
-          <li class="nav-item menu-items">
+          <!-- <li class="nav-item menu-items">
             <a class="nav-link" href="">
               <span class="menu-icon">
                 <i class="mdi mdi-file-document-box"></i>
               </span>
               <span class="menu-title">Delivery Man List</span>
             </a>
-          </li>
-          <li class="nav-item menu-items">
+          </li> -->
+          <!-- <li class="nav-item menu-items">
             <a class="nav-link" href="">
               <span class="menu-icon">
                 <i class="mdi mdi-file-document-box"></i>
               </span>
               <span class="menu-title">Payment Due</span>
             </a>
-          </li>
+          </li> -->
           <li class="nav-item menu-items">
             <a class="nav-link" href="{{url('add_blood_view')}}">
               <span class="menu-icon">
                 <i class="mdi mdi-file-document-box"></i>
               </span>
-              <span class="menu-title">Blood Bank</span>
+              <span class="menu-title">Add Blood</span>
             </a>
           </li>
           <li class="nav-item menu-items">
@@ -111,6 +111,22 @@
                 <i class="mdi mdi-file-document-box"></i>
               </span>
               <span class="menu-title">Seminar</span>
+            </a>
+          </li>
+          <li class="nav-item menu-items">
+            <a class="nav-link" href="{{url('add_medicine_view')}}">
+              <span class="menu-icon">
+                <i class="mdi mdi-file-document-box"></i>
+              </span>
+              <span class="menu-title">Add Medicines</span>
+            </a>
+          </li>
+          <li class="nav-item menu-items">
+            <a class="nav-link" href="{{url('see_review_view')}}">
+              <span class="menu-icon">
+                <i class="mdi mdi-file-document-box"></i>
+              </span>
+              <span class="menu-title">Review From Patients</span>
             </a>
           </li>
         </ul>

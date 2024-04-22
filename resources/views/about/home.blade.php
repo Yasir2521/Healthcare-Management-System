@@ -116,6 +116,9 @@
                                         <a href="{{ route('register') }}" class="btn">Register Yourself</a>
                                     @endif
 								</div>
+								
+
+
 							</div>
 						</div>
 					</div>
