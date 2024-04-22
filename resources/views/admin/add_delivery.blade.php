@@ -30,8 +30,8 @@ form label {
 }
 
 form input[type="text"],
-form input[type="date"],
-form input[type="time"] {
+form input[type="file"],
+form select {
     width: 100%;
     padding: 10px;
     margin-bottom: 15px;
@@ -72,6 +72,7 @@ a:hover {
   </head>
   <body>
     <div class="container-scroller">
+      @include('admin.sidebar')
       <div class="row p-0 m-0 proBanner" id="proBanner">
         <div class="col-md-12 p-0 m-0">
           <div class="card-body card-body-padding d-flex align-items-center justify-content-between">
@@ -90,68 +91,55 @@ a:hover {
           </div>
         </div>
       </div>
-      <!-- partial:partials/_sidebar.html -->
-  
-   
-      @include('admin.navbar')
-        <!-- partial -->
 
       
     <div class="container-fluid page-body-wrapper">
 
 
-        <div>
-            @if(session()->has('message'))
-            <div class = "alert alert-success">
-               {{session()->get('message')}}
 
-            </div>
-            @endif
-            <form action="{{url('upload_seminar')}}" method="POST" >
-                @csrf
-                <dev align="center">
-                    <label>Title</label>
-                    <input type="text" name ="name" placeholder="Write Title" required="">
+      <div>
 
-                </dev>
+        <form action="{{url('upload_doctor')}}" method="POST" enctype="multipart/form-data">
+            @csrf
+            <dev align="center">
+                <label>First Name</label>
+                <input type="text" name ="name" placeholder="Write name" required="">
 
-                <dev align="center">
-                    <label>Date</label>
-                    <input type="date" name ="date" placeholder="" required="">
+            </dev>
+            <dev align="center">
+                <label>Last Name</label>
+                <input type="text" name ="name" placeholder="Write name" required="">
 
-                </dev>
+            </dev>
 
+            
+            <dev align="center">
+                <label>Phone</label>
+                <input type="text" name ="number" placeholder="Write number" required="">
 
-                <dev align="center">
-                    <label>Time</label>
-                    <input type="time" name ="time" placeholder="" required="">
+            </dev>
 
-                </dev>
+            <dev align="center">
+                <label>Email</label>
+                <input type="text" name ="email" placeholder="Write email" required="">
 
-                <dev align="center">
-                    <label>Description</label>
-                    <input type="text" name ="description" placeholder="Write description" required="">
-                    
+            </dev>
 
-                </dev>
+            <dev align="center">
+                <input type="submit" class="btn btn-success">
+                
 
-                <dev align="center">
-                    <input type="submit" class="btn btn-success">
-                    
+            </dev>
+            <a href="{{ url('/home') }}">BACK</a>
+        </form>
 
-                </dev>
-		        <a href="{{ url('/home') }}">BACK</a>
-
-
-            </form>
-
-        </div>
+      </div>
 
     </div>
   
     <!-- container-scroller -->
     <!-- plugins:js -->
-    <!-- @include('admin.script') -->
+    @include('admin.script')
   </body>
 
 </html>

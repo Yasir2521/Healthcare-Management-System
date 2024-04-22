@@ -86,7 +86,8 @@
 							<div class="col-lg-3 col-md-3 col-12">
 								<!-- Start Logo -->
 								<div class="logo">
-									<a href="index.html"><img src="img/logo.png" alt="#"></a>
+								<a href="index.html"><img src="img/logo.png" alt="#" height="120" width="120"></a>
+
 								</div>
 								<!-- End Logo -->
 								<!-- Mobile Nav -->
@@ -112,7 +113,7 @@
 								<div class="get-quote">
                                     @if (Route::has('register'))
 
-                                        <a href="{{ route('register') }}" class="btn">Become a member</a>
+                                        <a href="{{ route('register') }}" class="btn">Register Yourself</a>
                                     @endif
 								</div>
 							</div>

@@ -1,98 +1,206 @@
-<<x-app-layout>
-
+<x-app-layout>
     <!DOCTYPE html>
-    <html lang="en">
+
+    <html lang="en" dir="ltr">
+
     <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
     <title>Patient Dashboard</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Roboto', sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 0;
-        }
-        .container {
-            max-width: 960px;
-            margin: 20px auto;
-            padding: 0 20px;
-        }
-        .header {
-        background-color: #007BFF; /* Blue background color */
-        color: #fff; /* White text color */
-        padding: 20px; /* Padding around the content */
-        text-align: center; /* Center-align the content */
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
-    }
 
-        .header h1 {
-            margin: 0; /* Remove default margin for h1 */
-            font-size: 24px; /* Increase font size for the heading */
-            font-weight: bold; /* Apply bold font weight */
+    <style media="screen">
+        /* Header Styles */
+        header {
+        position: fixed;
+        background: #0097A7  ; /* Dark blue */
+        padding: 20px;
+        width: 100%;
+        z-index: 1;
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
         }
 
-        .dashboard {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 20px;
+        .left_area h3 {
+        color: #fff;
+        margin: 0;
+        text-transform: uppercase;
+        font-size: 20px;
+        font-weight: 700;
+        letter-spacing: 2px;
         }
+       
+
+        .logout_btn {
+        padding: 8px 15px;
+        background: #34495E; /* Red */
+        text-decoration: none;
+        float: right;
+        margin-top: -28px;
+        margin-right: 20px;
+        border-radius: 20px;
+        font-size: 16px;
+        font-weight: 600;
+        color: #fff;
+        transition: background-color 0.3s ease;
+        }
+
+        .logout_btn:hover {
+        background: #E8F6F3; /* Lighter red on hover */
+        }
+
+        /* Sidebar Styles */
         .sidebar {
-            width: 20%;
-            background-color: #fff;
-            border: 1px solid #ddd;
-            padding: 20px;
+        background: #0097A7  ; /* Dark blue */
+        margin-top: 70px;
+        padding-top: 30px;
+        position: fixed;
+        left: 0;
+        width: 250px;
+        height: 100%;
+        transition: 0.5s;
+        box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.5);
         }
-        .main-content {
-            width: 75%;
-            background-color: #fff;
-            border: 1px solid #ddd;
-            padding: 20px;
+
+        .sidebar h4 {
+        color: #fff;
+        margin-top: 0;
+        margin-bottom: 20px;
+        font-size: 18px;
+        font-weight: 600;
         }
-        .sidebar ul {
-            list-style-type: none;
-            padding: 0;
-        }
-        .sidebar li {
-            margin-bottom: 10px;
-        }
+
         .sidebar a {
-            text-decoration: none;
-            color: #333;
-            display: block;
-            padding: 10px;
-            transition: background-color 0.3s ease;
+        color: #fff;
+        display: block;
+        width: 100%;
+        line-height: 50px;
+        text-decoration: none;
+        padding-left: 20px;
+        box-sizing: border-box;
+        transition: background-color 0.3s ease;
         }
+
         .sidebar a:hover {
-            background-color: #f0f0f0;
+        background: #16a085; /* Green */
         }
-        .content-heading {
-            border-bottom: 2px solid #4CAF50;
-            padding-bottom: 10px;
-            margin-bottom: 20px;
+
+        .sidebar i {
+        padding-right: 10px;
+        }
+
+        /* General Styles */
+        body {
+        margin: 0;
+        padding: 0;
+        font-family: "Arial", sans-serif;
+        background-color: #ecf0f1; /* Light gray */
+        }
+
+        .content {
+        margin-left: 250px;
+        background-color: #fff;
+        min-height: calc(100vh - 100px);
+        transition: 0.5s;
+        padding-bottom: 100px;
+        }
+
+        footer {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        background-color: #0097A7  ; /* Dark blue */
+        color: #fff;
+        text-align: center;
+        padding: 30px 0;
+        box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.5);
+        }
+        footer a {
+            color: #fff;
+            margin: 0 10px;
+        }
+    
+        footer a:hover {
+            color: #19B3D3;
+        }
+
+        /* Sidebar Toggle Styles */
+        label #sidebar_btn {
+        z-index: 1;
+        color: #fff;
+        position: fixed;
+        cursor: pointer;
+        left: 300px;
+        font-size: 20px;
+        margin: 5px 0;
+        transition: 0.5s;
+        transition-property: color;
+        }
+
+        label #sidebar_btn:hover {
+        color: #16a085; /* Green */
+        }
+
+        #check:checked~.sidebar {
+        left: -190px;
+        }
+
+        #check:checked~.sidebar a span {
+        display: none;
+        }
+
+        #check:checked~.sidebar a {
+        font-size: 20px;
+        margin-left: 170px;
+        width: 80px;
+        }
+
+        /* Hide Checkbox */
+        #check {
+        display: none;
         }
     </style>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
     </head>
+
     <body>
-    <div class="container">
-        <div class="header">
-            <h1>Patient Dashboard</h1>
+
+    <input type="checkbox" id="check">
+    <!--header area start-->
+    
+    <header>
+        <label for="check">
+        <i class="fas fa-bars" id="sidebar_btn"></i>
+        </label>
+        <div class="left_area">
+        <h3>Patient Dashboard</h3>
         </div>
-        <div class="dashboard">
-            <div class="sidebar">
-                <ul>
-                    <!-- <li><a href="#">Profile</a></li> -->
-                    <li><a href="{{url('appointment_view')}}"> Take Appointments</a></li>
-                    <li><a href="#">Medical Records</a></li>
-                    <li><a href="#">Prescriptions</a></li>
-                    <li><a href="#">Payments</a></li>
-                    <li><a href="#">Emergency</a></li>
-                </ul>
-            </div>
-        </div>
+        
+    </header>
+    <!--header area end-->
+    <!--sidebar start-->
+    <div class="sidebar">
+        <a href="/teacher-dashboard"><i class="fas fa-desktop"></i><span>Dashboard</span></a>
+        <a href="{{url('appointment_view')}}"><i class="fas fa-chalkboard-teacher"></i><span>Take Appointments</span></a>
+        <a href="{{url('doctor_view')}}"><i class="fas fa-address-card"></i><span>Doctor's List</span></a>
+        <a href="{{url('schedule_view')}}"><i class="fas fa-bullhorn"></i><span>Doctor's Schedule</span></a>
+        <a href="{{url('seminar_view')}}"><i class="fas fa-bullhorn"></i><span>Seminar</span></a>
+        <a href="/admin-notice"><i class="fas fa-bullhorn"></i><span>Emergency</span></a>
+        <a href="{{url('review_view')}}"><i class="fas fa-bullhorn"></i><span>Give Reviews</span></a>
+    
     </div>
+
+        <!-- Content goes here -->
+
+    <!-- Footer Section -->
+    
+    <footer>
+        <i class="fab fa-facebook"></i>
+        <i class="fab fa-whatsapp"></i>
+        <i class="fab fa-instagram"></i>
+        <i class="fab fa-google"></i>
+    </footer>
+
     </body>
+
     </html>
 
 </x-app-layout>
