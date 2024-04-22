@@ -79,6 +79,7 @@
         <th>Type</th>
         <th>Manufacture Date</th>
         <th>Expiry Date</th>
+        <th>Amount</th>
         <th>Action</th>
       </tr>
     </thead>
@@ -91,6 +92,7 @@
         <td>{{ $add_medicines->type }}</td>
         <td>{{ $add_medicines->manufacture_date }}</td>
         <td>{{ $add_medicines->expiry_date }}</td>
+        <td>{{ $add_medicines->amount }}</td>
         <td><a href="#" class="order-medicine-link">Order Medicine</a></td> <!-- Added class for button-like styling -->
       </tr>
       @endforeach

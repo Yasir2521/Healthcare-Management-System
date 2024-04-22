@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>All Reviews</title>
+    <title>Seminar's Schedule</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -60,27 +60,27 @@
 <body>
 
 <div class="container">
-    <h1>Feedbacks from Patients</h1>
+    <h1>Vehicles List</h1>
     <table class="table">
         <thead>
             <tr>
-                <th>Date</th>
-                <th>Review</th> <!-- Change to the appropriate field -->
-                
-                
+                <th>Vehicle Type</th>
+                <th>Phone Number</th> <!-- Change to the appropriate field -->
+                <th>Vehicle NO.</th> <!-- Change to the appropriate field -->
                 
                  
                 
             </tr>
         </thead>
         <tbody>
-            @foreach ($reviwe as $reviwes)
+            @foreach ($vehicle as $vehicles)
                 <tr>
-                    <td>{{ $reviwes->created_at }}</td>
-                    <td>{{ $reviwes->comment }}</td>
+                    <td>{{ $vehicles->type }}</td>
+                    <td>{{ $vehicles->phone }}</td>
+                    <td>{{ $vehicles->number }}</td>
+            
                     
-                    
-                    
+                    <!-- Add more columns as needed -->
                 </tr>
             @endforeach
         </tbody>

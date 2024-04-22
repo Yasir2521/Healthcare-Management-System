@@ -12,6 +12,8 @@ use App\Models\seminar;
 use App\Models\Blood;
 use App\Models\medi;
 use App\Models\Reviwe;
+use App\Models\vehicle;
+use App\Models\hospital;
 
 class AppointmentController extends Controller
 {
@@ -88,6 +90,18 @@ class AppointmentController extends Controller
     {
         $reviwe = reviwe::all();
         return view('user.reviewlist',compact('reviwe'));
+    }
+
+    public function vehicle_view()
+    {
+        $vehicle = vehicle::all();
+        return view('user.vehiclelist',compact('vehicle'));
+    }
+
+    public function hospital_view()
+    {
+        $hospital = hospital::all();
+        return view('user.hospitallist',compact('hospital'));
     }
     
     

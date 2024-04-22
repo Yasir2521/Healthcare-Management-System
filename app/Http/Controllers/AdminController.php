@@ -106,6 +106,7 @@ class AdminController extends Controller
     $add_medicine->manufacture_date = $request->manufacture_date;
     $add_medicine->expiry_date = $request->expiry_date;
     $add_medicine->disease_type = $request->disease_type;
+    $add_medicine->amount = $request->amount;
     
     $add_medicine->image_path = $imageName; // Assuming the image path is stored in the 'image_path' column
 

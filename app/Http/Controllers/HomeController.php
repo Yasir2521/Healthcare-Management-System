@@ -14,6 +14,9 @@ use App\Models\seminar;
 use App\Models\Blood;
 use App\Models\medi;
 use App\Models\Reviwe;
+use App\Models\hospital;
+use App\Models\vehicle;
+
 
 
 
@@ -29,6 +32,8 @@ class HomeController extends Controller
             $doctor = doctor::all();
             $blood = blood::all();
             $reviwe = reviwe::all();
+            $vehicle = vehicle::all();
+            $hospital = hospital::all();
             $add_medicine = medi::all();
             $seminar = seminar::all();
             $schedule = Schedule::with('user')->whereHas('user', function ($query) {
@@ -37,7 +42,7 @@ class HomeController extends Controller
 
             
 
-             return view('user.home',compact('doctor', 'schedule', 'seminar', 'blood', 'add_medicine', 'reviwe'));
+             return view('user.home',compact('doctor', 'schedule', 'seminar', 'blood', 'add_medicine', 'reviwe', 'vehicle', 'hospital'));
            }
            else if(Auth::user()->usertype=='1')
            {

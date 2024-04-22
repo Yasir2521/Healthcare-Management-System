@@ -129,6 +129,10 @@ a:hover {
                 <label>Medicine Type</label>
                 <input type="text" name="type" placeholder="Enter medicine type" required="">
                 </dev>
+                <dev align="center">
+                <label>Amount</label>
+                <input type="text" name="amount" placeholder="Enter medicine type" required="">
+                </dev>
                 
                 <dev align="center">
                 <label>Manufacture Date</label>
