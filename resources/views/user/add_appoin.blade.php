@@ -109,7 +109,7 @@
             <input type="text" id="name" name="name" required>
 
             <label for="number">age:</label>
-            <input type="text" id="number" name="number" required>
+            <input type="text" id="number" name="age" required>
 
             <label for="type">Blood Group:</label>
             <select id="type" name="type" required>

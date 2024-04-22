@@ -65,26 +65,25 @@
         <thead>
             <tr>
                 <th>Date</th>
-                <th>Review</th> <!-- Change to the appropriate field -->
-                
-                
-                 
-                
+                <th>Review</th>
+                <th>Rating</th>
             </tr>
         </thead>
         <tbody>
-            @foreach ($reviwe as $reviwes)
+            @foreach ($reviwe as $reviwes )
                 <tr>
                     <td>{{ $reviwes->created_at }}</td>
                     <td>{{ $reviwes->comment }}</td>
-                    
-                    
-                    <!-- Add more columns as needed -->
+                    <td>
+                        @for ($i = 0; $i < $reviwes->rating; $i++)
+                            ⭐
+                        @endfor
+                    </td>
                 </tr>
             @endforeach
         </tbody>
     </table>
     <a href="{{ url('/home') }}" class="button">Go Back</a>
-
 </div>
+
 

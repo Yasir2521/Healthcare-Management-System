@@ -18,6 +18,7 @@ use App\Models\User;
 use App\Models\medi;
 
 use App\Models\Blood;
+use App\Models\appoin;
 
 class AdminController extends Controller
 {
@@ -203,6 +204,21 @@ class AdminController extends Controller
     {
         return view('user.add_appoin');
     }
+
+    public function upload_appoin(Request $request)
+    {
+        $appoin = new appoin(); 
+    
+    $appoin->name=$request->name;
+    $appoin->age=$request->age;
+    $appoin->type=$request->type;
+    $appoin->number=$request->number;
+    $appoin->description=$request->description;
+
+    $appoin->save();
+    return redirect()->back()->with('message','Appointment Taken Successfully');
+    }
+
 
 
 
