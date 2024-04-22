@@ -88,5 +88,7 @@ class AppointmentController extends Controller
         return view('user.reviewlist',compact('reviwe'));
     }
     
+    
+
 
 }

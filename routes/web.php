@@ -59,6 +59,13 @@ Route::get('/see_review_view', [AppointmentController::class, 'review_view']);
 Route::get('/add_medicine_view',[AdminController::class,'add_medicine_view']);
 Route::post('/upload_medicine',[AdminController::class,'upload_medicine']);
 
+Route::get('/add_hospital_view',[AdminController::class,'add_hospital_view']);
+Route::post('/upload_hospital',[AdminController::class,'upload_hospital']);
+
+Route::get('/add_transportation', [AdminController::class, 'add_transportation']);
+
+Route::post('/upload_transportation', [AdminController::class, 'upload_transportation']);
+
 
 
 

@@ -188,6 +188,7 @@
         <a href="/admin-notice"><i class="fas fa-bullhorn"></i><span>Emergency</span></a>
         <a href="{{url('review_view')}}"><i class="fas fa-bullhorn"></i><span>Give Feedback</span></a>
         <a href="{{url('see_review_view')}}"><i class="fas fa-bullhorn"></i><span>See Feedbacks</span></a>
+        
     
     </div>
 

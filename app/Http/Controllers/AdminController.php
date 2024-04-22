@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Doctor;
 use App\Models\seminar;
+use App\Models\hospital;
+use App\Models\vehicle;
 
 
 use App\Models\medi;
@@ -106,6 +108,62 @@ class AdminController extends Controller
     // Redirect back with success message
     return redirect()->back()->with('message', 'Medicine added successfully');
     }
+
+    public function add_transportation()
+    {
+    return view('admin.transport');
+    }
+
+
+    public function upload_transportation(Request $request)
+    {
+        $vehicle = new vehicle();
+
+    // Handle file upload
+   
+   
+   
+
+    $vehicle->type=$request->type;
+    $vehicle->phone=$request->phone;
+    $vehicle->number=$request->number;
+    
+     
+
+    $vehicle->save();
+
+    // Redirect back with success message
+    return redirect()->back()->with('message', 'Vehicle added successfully');
+    }
+
+
+
+
+    public function add_hospital_view()
+    {
+        return view('admin.add_hospital');
+    }
+    public function upload_hospital(Request $request)
+    {
+        $hospital = new hospital();
+
+    // Handle file upload
+   
+   
+   
+
+    $hospital->name=$request->name;
+    $hospital->location=$request->location;
+    $hospital->website=$request->website;
+    
+     
+
+    $hospital->save();
+
+    // Redirect back with success message
+    return redirect()->back()->with('message', 'Hospital added successfully');
+    }
+
 
 
 
