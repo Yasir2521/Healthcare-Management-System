@@ -57,6 +57,14 @@
               <span class="menu-title">Add Doctors</span>
             </a>
           </li>
+          <li class="nav-item menu-items">
+            <a class="nav-link" href="{{url('add_deliveryman_view')}}">
+              <span class="menu-icon">
+                <i class="mdi mdi-file-document-box"></i>
+              </span>
+              <span class="menu-title">Add Delivery Man</span>
+            </a>
+          </li>
           <!-- <li class="nav-item menu-items">
             <a class="nav-link" href="{{url('add_delivery_view')}}">
               <span class="menu-icon">
