@@ -23,6 +23,18 @@ use App\Models\Schedule;
 
 class AdminController extends Controller
 {
+    public function cancel_appointment(Request $request)
+{
+    $id = $request->input('id');
+    // Retrieve the appointment by its ID
+    $appointment = appoin::findOrFail($id);
+
+    // Delete the appointment
+    $appointment->delete();
+
+    // Redirect back with a success message
+    return redirect()->back()->with('success', 'Appointment canceled successfully.');
+}
 
     public function doc_up_schedule()
     {

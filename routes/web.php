@@ -73,7 +73,7 @@ Route::post('/upload_transportation', [AdminController::class, 'upload_transport
 Route::get('/add_appoin',[AdminController::class,'add_appoin']);
 Route::post('/upload_appoin',[AdminController::class,'upload_appoin']);
 
-
+Route::post('/cancel_appointment',[AdminController::class,'cancel_appointment']);
 
 
 
