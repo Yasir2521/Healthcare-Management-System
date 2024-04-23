@@ -18,6 +18,7 @@ use App\Models\User;
 use App\Models\medi;
 
 use App\Models\Blood;
+use App\Models\appoin;
 
 class AdminController extends Controller
 {
@@ -28,19 +29,42 @@ class AdminController extends Controller
 
     public function upload(Request $request)
     {
-        $doctor = new doctor;
-        $image = $request->file;
-    $imagename = time().'.'.$image->getClientoriginalExtension();
-    $request->file->move('doctorimage',$imagename);
-    $doctor->image=$imagename;
-
+    $doctor = new User;
     $doctor->name=$request->name;
-    $doctor->phone=$request->number;
     $doctor->email=$request->email;
-    $doctor->speciality=$request->speciality;
+    $doctor->phone=$request->phone;
+    $doctor->adress=$request->adress;
+    $doctor->usertype='2';
+    $hashedPassword = bcrypt($request->password);
+
+    $doctor->password=$hashedPassword;
+
+        
 
     $doctor->save();
     return redirect()->back()->with('message','Doctor Added Successfully');
+    
+    }
+
+    public function add_del_view()
+    {
+        return view('admin.add_deliveryman');
+    }
+
+    public function add_deliveryman(Request $request)
+    {
+    $deliveryman = new User;
+    $deliveryman->name=$request->name;
+    $deliveryman->email=$request->email;
+    $deliveryman->phone=$request->phone;
+    $deliveryman->adress=$request->adress;
+    $deliveryman->usertype='3';
+    $hashedPassword = bcrypt($request->password);
+
+    $deliveryman->password=$hashedPassword;
+
+    $deliveryman->save();
+    return redirect()->back()->with('message','Delivery Man Added Successfully');
     
     }
     public function addseminar()
@@ -204,6 +228,23 @@ class AdminController extends Controller
     {
         return view('user.add_appoin');
     }
+
+    public function upload_appoin(Request $request)
+    {
+        $user = auth()->user();
+        $appoin = new appoin(); 
+    
+    $appoin->name=$request->name;
+    $appoin->age=$request->age;
+    $appoin->type=$request->type;
+    $appoin->number=$request->number;
+    $appoin->description=$request->description;
+    $appoin->id = $user->id;
+
+    $appoin->save();
+    return redirect()->back()->with('message','Appointment Taken Successfully');
+    }
+
 
 
 
