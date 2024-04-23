@@ -18,6 +18,21 @@ class AboutController extends Controller
         return view('user.seminarlistanother',compact('seminar'));
     }
 
+    public function exercise()
+    {
+        return view('about.exercise');
+    }
+
+    public function food()
+    {
+        return view('about.food');
+    }
+
+    public function anxiety()
+    {
+        return view('about.anxiety');
+    }
+
     
 }
 

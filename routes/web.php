@@ -29,6 +29,9 @@ Route::get('/', function () {
 });
 Route::get('/home',[HomeController::class,'redirect']);
 Route::get('/about', [AboutController::class, 'about_us'])->name('homepage');
+Route::get('/homeexercise', [AboutController::class, 'exercise']);
+Route::get('/goodfood', [AboutController::class, 'food']);
+Route::get('/anxiety', [AboutController::class, 'anxiety']);
 
 Route::get('/add_delivery_view',[AdminController::class,'add_delivery_view']);
 Route::get('/add_doctor_view',[AdminController::class,'addview']);
