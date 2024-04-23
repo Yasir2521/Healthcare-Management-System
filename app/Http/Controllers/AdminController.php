@@ -20,6 +20,7 @@ use App\Models\medi;
 use App\Models\Blood;
 use App\Models\appoin;
 use App\Models\Schedule;
+use App\Models\send_message;
 
 class AdminController extends Controller
 {
@@ -312,7 +313,36 @@ class AdminController extends Controller
     return redirect()->back()->with('message','Appointment Taken Successfully');
     }
 
+    public function viewDoctorsForMessaging()
+    {
+
+        $schedule = Schedule::with('user')->get();
+        return view('user.schedulelistanother',compact('schedule'));
+    }
+
+    public function add_message(Request $request)
+    {
+        $user_id = $request->query('user_id');
+        return view('user.add_message', compact('user_id'));
+    }
+
+    public function upload_message(Request $request)
+    {
+        
+        $send_message = new send_message();
+        
+    
+    $send_message->send_message=$request->send_message;
+    $send_message->patient_id = Auth::user()->id;
+    $doctorId = $request->query('user_id');
+    $send_message->doctor_id = $doctorId;
+
+    $send_message->save();
+
+    return redirect()->back()->with('message','Message send Successfully');
 
 
 
+
+    }
 }

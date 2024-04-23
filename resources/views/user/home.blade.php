@@ -183,7 +183,6 @@
     <!--sidebar start-->
     <div class="sidebar">
         <!-- <a href="/teacher-dashboard"><i class="fas fa-desktop"></i><span>Dashboard</span></a> -->
-        <a href="{{url('appointment_view')}}"><i class="fas fa-chalkboard-teacher"></i><span>Take Appointments</span></a>
         <a href="{{url('user_view_appointments')}}"><i class="fas fa-address-card"></i><span>View Appointments</span></a>
         <a href="{{url('schedule_view')}}"><i class="fas fa-bullhorn"></i><span>Doctor's Schedule</span></a>
         <a href="{{url('blood_view')}}"><i class="fas fa-address-card"></i><span>Available Bloods</span></a>
@@ -193,6 +192,7 @@
         <a href="{{url('review_view')}}"><i class="fas fa-bullhorn"></i><span>Give Feedback</span></a>
         <a href="{{url('see_review_view')}}"><i class="fas fa-bullhorn"></i><span>See Feedbacks</span></a>
         <a href="{{url('hospital_view')}}"><i class="fas fa-bullhorn"></i><span>Hospital's List</span></a>
+        <a href="{{ url('view_doctors_for_messaging') }}"><i class="fas fa-comments"></i><span>Message Doctors</span></a>
         
     
     </div>

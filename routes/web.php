@@ -76,6 +76,9 @@ Route::post('/upload_transportation', [AdminController::class, 'upload_transport
 Route::get('/add_appoin',[AdminController::class,'add_appoin']);
 Route::post('/upload_appoin',[AdminController::class,'upload_appoin']);
 
+Route::get('/add_message',[AdminController::class,'add_message']);
+Route::post('/upload_message',[AdminController::class,'upload_message']);
+
 
 
 
@@ -99,6 +102,9 @@ Route::get('/doctorscheduleview',[ScheduleController::class,'schedule']);
 
 
 Route::post('/upload_schedule',[ScheduleController::class,'store']);
+
+Route::get('/view_doctors_for_messaging', [AdminController::class, 'viewDoctorsForMessaging'])->name('view_doctors_for_messaging');
+
 
 
 
