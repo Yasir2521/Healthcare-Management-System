@@ -61,7 +61,7 @@
         <input type="email" id="email" name="email" placeholder="Enter your email" required>
         <label for="address">Address:</label>
         <input type="text" id="address" name="address" placeholder="Enter your address" required>
-        <input type="submit" value="Sign Up">
+        <input type="submit" value="Request Blood">
     </form>
 </div>
 

@@ -9,7 +9,9 @@
     /* Add your custom styles here */
     body {
         font-family: Arial, sans-serif;
-        background-color: #2ecc71;
+        background-image: url('img1/laptop-keyboard-stethoscope-on-blue-260nw-1907543080.webp'); /* Replace 'your_image_url.jpg' with the URL of your image */
+        background-size: cover;
+        background-position: center;
         margin: 0;
         padding: 0;
         display: flex;
@@ -18,7 +20,7 @@
         height: 100vh;
     }
     .login-container {
-        background-color: #b8e994;
+        background-color: rgba(255, 255, 255, 0.8); /* Add opacity to make the form more readable */
         padding: 20px;
         border-radius: 8px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -91,7 +93,3 @@
     </div>
 </body>
 </html>
-
-
-
-

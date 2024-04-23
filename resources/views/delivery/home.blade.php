@@ -174,10 +174,10 @@
     <!--header area end-->
     <!--sidebar start-->
     <div class="sidebar">
-        <a href="/student-dashboard"><i class="fas fa-desktop"></i><span>Dashboard</span></a>
-        <a href="/student-attendance"><i class="fas fa-address-card"></i><span>Attendance</span></a>
-        <a href="/admin-notice"><span>Grades</span></a>
-        <a href="/inbox"><i class="fas fa-envelope"></i><span>Messages</span></a>
+        <a href="/student-dashboard"><i class="fas fa-desktop"></i><span>Order for Blood</span></a>
+        <a href="/student-attendance"><i class="fas fa-address-card"></i><span>Medicines Order</span></a>
+        <a href="{{url('tip_view')}}"><i class="fas fa-address-card"></i><span>Doctor's Health Tips</span></a>
+        <a href="{{url('seminar_view')}}"><i class="fas fa-address-card"></i><span>Seminar</span></a>
     
     
     <footer>

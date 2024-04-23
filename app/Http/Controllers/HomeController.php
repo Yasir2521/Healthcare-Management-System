@@ -16,6 +16,7 @@ use App\Models\medi;
 use App\Models\Reviwe;
 use App\Models\hospital;
 use App\Models\vehicle;
+use App\Models\tip;
 
 
 
@@ -33,6 +34,7 @@ class HomeController extends Controller
             $blood = blood::all();
             $reviwe = reviwe::all();
             $vehicle = vehicle::all();
+            $tip = tip::all();
             $hospital = hospital::all();
             $add_medicine = medi::all();
             $seminar = seminar::all();
@@ -42,7 +44,7 @@ class HomeController extends Controller
 
             
 
-             return view('user.home',compact('doctor', 'schedule', 'seminar', 'blood', 'add_medicine', 'reviwe', 'vehicle', 'hospital'));
+             return view('user.home',compact('doctor', 'schedule', 'seminar', 'blood', 'add_medicine', 'reviwe', 'vehicle', 'hospital', 'tip'));
            }
            else if(Auth::user()->usertype=='1')
            {

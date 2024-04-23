@@ -16,7 +16,7 @@
             height: 100vh;
         }
         .register-container {
-            background-color: #b8e994;
+            background-color: grey;
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -39,7 +39,7 @@
         .form-group button {
             width: 100%;
             padding: 10px;
-            background-color: #007bff;
+            background-color: black;
             color: #fff;
             border: none;
             border-radius: 4px;

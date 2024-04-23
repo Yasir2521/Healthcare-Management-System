@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Seminar's Schedule</title>
+    <title>All Reviews</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -60,33 +60,42 @@
 <body>
 
 <div class="container">
-    <h1>Hospital's List</h1>
+    <h1>Feedbacks from Patients</h1>
     <table class="table">
         <thead>
             <tr>
-                <th>Hospital Name</th>
-                <th>Hospital Location</th> <!-- Change to the appropriate field -->
-                <th>Hospital Website</th> <!-- Change to the appropriate field -->
+                <th>Date</th>
+                <th>Review</th> <!-- Change to the appropriate field -->
+                
+                
                 
                  
                 
+
+                <th>Rating</th>
+
             </tr>
         </thead>
         <tbody>
-            @foreach ($hospital as $hospitals)
+            @foreach ($reviwe as $reviwes )
                 <tr>
-                    <td>{{ $hospitals->name }}</td>
-                    <td>{{ $hospitals->location }}</td>
-                    <td><a href="{{ $hospitals->website }}" target="_blank">{{ $hospitals->website }}</a></td>
-
-            
+                    <td>{{ $reviwes->created_at }}</td>
+                    <td>{{ $reviwes->comment }}</td>
                     
-                    <!-- Add more columns as needed -->
+                    
+                    
+
+                    <td>
+                        @for ($i = 0; $i < $reviwes->rating; $i++)
+                            ⭐
+                        @endfor
+                    </td>
+
                 </tr>
             @endforeach
         </tbody>
     </table>
-    <a href="{{ url('/home') }}" class="button">Go Back</a>
-
+    <a href="http://127.0.0.1:8000/" class="button">Go Back</a>
 </div>
+
 

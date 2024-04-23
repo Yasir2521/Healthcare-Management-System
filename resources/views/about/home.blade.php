@@ -120,6 +120,18 @@
 
 
 							</div>
+							<div class="col-lg-2 col-12 d-flex justify-content-end">
+
+								<div class="get-quote">
+                                    @if (Route::has('hospital'))
+
+                                        <a href="{{ route('hospital') }}" class="btn">Hospitals We are connected with</a>
+                                    @endif
+								</div>
+								
+
+
+							</div>
 						</div>
 					</div>
 				</div>

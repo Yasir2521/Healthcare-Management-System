@@ -127,7 +127,7 @@
             <label for="phone">Phone:</label>
             <input type="text" id="number" name="number" required>
 
-            <input type="submit" value="Donate">
+            <input type="submit" value="Add Blood">
 
             
         </form>

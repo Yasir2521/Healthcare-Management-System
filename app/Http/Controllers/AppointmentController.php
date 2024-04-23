@@ -14,6 +14,7 @@ use App\Models\medi;
 use App\Models\Reviwe;
 use App\Models\vehicle;
 use App\Models\hospital;
+use App\Models\tip;
 
 class AppointmentController extends Controller
 {
@@ -103,6 +104,12 @@ class AppointmentController extends Controller
     {
         $hospital = hospital::all();
         return view('user.hospitallist',compact('hospital'));
+    }
+
+    public function tip_view()
+    {
+        $tip = tip::all();
+        return view('user.tiplist',compact('tip'));
     }
     
     

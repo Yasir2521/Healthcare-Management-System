@@ -20,10 +20,23 @@ use App\Models\medi;
 use App\Models\Blood;
 use App\Models\appoin;
 use App\Models\Schedule;
-use App\Models\send_message;
+use App\Models\tip;
+
 
 class AdminController extends Controller
 {
+    public function cancel_appointment(Request $request)
+{
+    $id = $request->input('id');
+    // Retrieve the appointment by its ID
+    $appointment = appoin::findOrFail($id);
+
+    // Delete the appointment
+    $appointment->delete();
+
+    // Redirect back with a success message
+    return redirect()->back()->with('success', 'Appointment canceled successfully.');
+}
 
     public function doc_up_schedule()
     {
@@ -147,6 +160,27 @@ class AdminController extends Controller
     $seminar->save();
     return redirect()->back()->with('message','Seminar Details Added Successfully');
     }
+
+    
+    public function addtip()
+    {
+        return view('admin.add_tips');
+    }
+
+    public function uploadtip(Request $request)
+    {
+        $tip = new tip; 
+    
+    $tip->name=$request->name;
+    $tip->date=$request->date;
+    $tip->time=$request->time;
+    $tip->description=$request->description;
+
+    $tip->save();
+    return redirect()->back()->with('message','Seminar Details Added Successfully');
+    }
+
+
 
     public function add_delivery_view()
     {
@@ -320,29 +354,5 @@ class AdminController extends Controller
         return view('user.schedulelistanother',compact('schedule'));
     }
 
-    public function add_message(Request $request)
-    {
-        $user_id = $request->query('user_id');
-        return view('user.add_message', compact('user_id'));
-    }
 
-    public function upload_message(Request $request)
-    {
-        
-        $send_message = new send_message();
-        
-    
-    $send_message->send_message=$request->send_message;
-    $send_message->patient_id = Auth::user()->id;
-    $doctorId = $request->query('user_id');
-    $send_message->doctor_id = $doctorId;
-
-    $send_message->save();
-
-    return redirect()->back()->with('message','Message send Successfully');
-
-
-
-
-    }
 }

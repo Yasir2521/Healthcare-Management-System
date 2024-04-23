@@ -86,7 +86,7 @@
             @endforeach
         </tbody>
     </table>
-    <a href="{{ url('/home') }}" class="button">Go Back</a>
+    <a href="http://127.0.0.1:8000/" class="button">Go Back</a>
 
 </div>
 

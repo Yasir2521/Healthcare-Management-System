@@ -21,6 +21,9 @@ body {
 table {
   width: 100%;
   border-collapse: collapse;
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden;
 }
 
 th, td {
@@ -116,9 +119,9 @@ tr:hover {
       <tr>
         <th>Doctor's Name</th>
         <th>Specialty</th>
-        <th>Schedules</th>
+        <th>Appointment Days</th> <!-- Changed column name -->
         <th>Time</th>
-        <th>Action</th> <!-- Added a new column for actions -->
+        <th>Action</th>
       </tr>
     </thead>
     <tbody>
@@ -132,7 +135,13 @@ tr:hover {
             @endif
           </td>
           <td>{{ $schedules->specialty }}</td>
-          <td>{{ $schedules->appointment_days }}</td>
+          <td>
+            <select>
+              @foreach(json_decode($schedules->appointment_days) as $day)
+                <option>{{ $day }}</option>
+              @endforeach
+            </select>
+          </td>
           <td>{{ $schedules->time }}</td>
           <td><a href="{{ url('/add_appoin') }}?user_id={{ $schedules->user_id }}" class="take-appointment-link">Take Appointment</a></td>
         </tr>
