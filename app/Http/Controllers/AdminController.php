@@ -19,9 +19,71 @@ use App\Models\medi;
 
 use App\Models\Blood;
 use App\Models\appoin;
+use App\Models\Schedule;
 
 class AdminController extends Controller
 {
+
+    public function doc_up_schedule()
+    {
+        $doctorID = Auth::user()->id;
+
+    
+        $schedule = Schedule::where('user_id', $doctorID)->get();
+
+        return view('doctor.update_schedule',['schedule' => $schedule]);
+    }
+    public function updated_schedule(Request $request)
+    {
+        $doctorID = Auth::user()->id;
+
+        // Retrieve the schedule for the authenticated doctor
+        $schedule = Schedule::where('user_id', $doctorID)->firstOrFail();
+    
+        // Assuming $request contains validated data
+        $validatedData = $request->all();
+    
+        // Update schedule properties
+        $schedule->specialty = $validatedData['specialty'];
+        $schedule->appointment_days = json_encode($validatedData['appointment_days']); // Convert array to JSON string
+        $schedule->date = $validatedData['date'];
+        $schedule->time = $validatedData['time'];
+    
+        // Save the updated schedule
+        $schedule->save();
+
+        return redirect()->back()->with('message','Schedule updated Successfully');
+    }
+
+
+
+
+    public function doctor_view_appointments()
+    {
+    // Get the authenticated doctor's ID
+    $doctorID = Auth::user()->id;
+
+    // Fetch all the appointments where doctor_id matches $doctorID
+    $appointments = Appoin::where('doctor_id', $doctorID)->get();
+
+    // Pass the appointments data to the view
+    return view('doctor.doc_appointments', ['appointments' => $appointments]);
+    }
+
+
+    public function user_view_appointments()
+    {
+    // Get the authenticated doctor's ID
+    $userID = Auth::user()->id;
+
+    // Fetch all the appointments where doctor_id matches $doctorID
+    $appointments = Appoin::where('patient_id', $userID)->with('doctor')->get();
+
+    // Pass the appointments data to the view
+    return view('user.view_appointments', ['appointments' => $appointments]);
+    }
+
+
     public function addview()
     {
         return view('admin.add_doctor');
@@ -205,15 +267,15 @@ class AdminController extends Controller
    
     public function upload_blooddelivery(Request $request)
     {
-        $user = auth()->user();
+       
         $blooddelivery = new blooddelivery();
 
     // Handle file upload
     
     
     // Store form data in database
-    $blooddelivery->id = $user->id;
-    $blooddelivery->user_id = $user->id;
+    
+    $blooddelivery->user_id = Auth::user()->id;
     $blooddelivery->email = $request->email;
     $blooddelivery->address = $request->address;
     

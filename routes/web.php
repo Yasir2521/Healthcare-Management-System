@@ -78,10 +78,17 @@ Route::post('/upload_appoin',[AdminController::class,'upload_appoin']);
 
 
 
+
+
+
 Route::get('/blooddelivery',[AdminController::class,'add_blooddelivery_view']);
 Route::post('/upload_blooddelivery',[AdminController::class,'upload_blooddelivery']);
 
+Route::get('/doctor_view_appointments',[AdminController::class,'doctor_view_appointments']);
+Route::get('/doc_up_schedule',[AdminController::class,'doc_up_schedule']);
+Route::post('/updated_schedule',[AdminController::class,'updated_schedule']);
 
+Route::get('/user_view_appointments',[AdminController::class,'user_view_appointments']);
 
 
 
@@ -104,6 +111,7 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
+
 
 // Route::middleware([
 //     'auth:sanctum',

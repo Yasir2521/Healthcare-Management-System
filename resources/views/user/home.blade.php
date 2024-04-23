@@ -184,7 +184,7 @@
     <div class="sidebar">
         <!-- <a href="/teacher-dashboard"><i class="fas fa-desktop"></i><span>Dashboard</span></a> -->
         <a href="{{url('appointment_view')}}"><i class="fas fa-chalkboard-teacher"></i><span>Take Appointments</span></a>
-        <a href="{{url('doctor_view')}}"><i class="fas fa-address-card"></i><span>Doctor's List</span></a>
+        <a href="{{url('user_view_appointments')}}"><i class="fas fa-address-card"></i><span>View Appointments</span></a>
         <a href="{{url('schedule_view')}}"><i class="fas fa-bullhorn"></i><span>Doctor's Schedule</span></a>
         <a href="{{url('blood_view')}}"><i class="fas fa-address-card"></i><span>Available Bloods</span></a>
         <a href="{{url('medicine_view')}}"><i class="fas fa-address-card"></i><span>Available Medicines</span></a>
