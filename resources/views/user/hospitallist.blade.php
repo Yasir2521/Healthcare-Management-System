@@ -77,7 +77,7 @@
                 <tr>
                     <td>{{ $hospitals->name }}</td>
                     <td>{{ $hospitals->location }}</td>
-                    <td>{{ $hospitals->website }}</td>
+                    <td><a href="{{ $hospitals->website }}">{{ $hospitals->website }}</a></td>
             
                     
                     <!-- Add more columns as needed -->
