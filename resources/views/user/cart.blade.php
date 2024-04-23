@@ -79,6 +79,30 @@
   .order-medicine-link:hover {
     background-color: #0056b3; /* Darker blue */
   }
+  .confirm-link {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #800080; /* Blue */
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+  }
+  .confirm-link:hover {
+    background-color: #4b0082; /* Darker blue */
+  }
+  .cancel-medicine-link {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #ff6f61; 
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+  }
+  .cancel-medicine-link:hover {
+    background-color: #e63946; 
+  }
   .alert {
         background-color: #dff0d8; /* Success alert background color */
         border: 1px solid #d0e9c6; /* Success alert border color */
@@ -87,6 +111,9 @@
         margin-bottom: 20px;
         border-radius: 5px;
     }
+    .quantity-input {
+    width: 50px; /* Adjust width as needed */
+  }
 
 </style>
 </head>
@@ -105,32 +132,45 @@
   <table>
     <thead>
       <tr>
-        <th>Name</th>
+        <th>Medicine Name</th>
         <th>Power</th>
-        <th>Type</th>
-        <th>Manufacture Date</th>
-        <th>Expiry Date</th>
+        
         <th>Amount</th>
-        <th>Action</th>
+        <th>Quantity</th>
+        
+        <th></th>
+        <th></th>
+        <th></th>
+        <th>Total Price</th>
+        
+        
+       
       </tr>
     </thead>
     <tbody>
       <!-- Assuming $add_medicine is an array or iterable -->
-      @foreach ($add_medicine as $add_medicines)
+      @foreach ($orders as $order)
       <tr>
-        <td>{{ $add_medicines->name }}</td>
-        <td>{{ $add_medicines->power }}</td>
-        <td>{{ $add_medicines->type }}</td>
-        <td>{{ $add_medicines->manufacture_date }}</td>
-        <td>{{ $add_medicines->expiry_date }}</td>
-        <td>{{ $add_medicines->amount }}</td>
+        <td>{{ $order->name }}</td>
+        <td>{{ $order->power }}</td>
+        <td>{{ $order->amount }}</td>
+        <td>{{ $order->quantity }}</td>
+        <td><form action="{{ url('/update_price') }}" method="POST">
+                @csrf <!-- CSRF protection -->
+                <input type="hidden" name="user_id" value="{{ $order->medicine_id }}">
+                <input type="number" name="quantity" value="1" min="1" max="50" class="quantity-input">
+                <td><button type="submit" class="order-medicine-link">Update</button><td>
+            </form></td>
+        <td>{{ $order->totalprice }}</td>
 
-        <td><form action="{{ url('/add_to_cart') }}" method="POST">
-    @csrf <!-- CSRF protection -->
-    <input type="hidden" name="user_id" value="{{ $add_medicines->id }}">
-    <button type="submit" class="order-medicine-link">Add to cart</button>
+        <td><form action="{{ url('/cancel_order') }}" method="POST">
+    @csrf
+    <input type="hidden" name="id" value="{{ $order->id }}">
+    <button type="submit" class="cancel-medicine-link" onclick="return confirm('Are you sure you want to remove the medicine?')">Remove</button>
 </form>
 </td>
+
+ 
         
 
       </tr>
@@ -138,8 +178,14 @@
     </tbody>
   </table>
   <div class="go-back-container">
-    <a href="{{ url('/go_to_cart') }}" class="go-cart-link">&larr; Go to Cart</a>
-  </div><br>
+    <!-- Display the total amount below the table -->
+    <p>Total Amount: ${{ $totalAmount }}</p>
+    </div>
+
+
+    <div class="go-back-container">
+    <a href="{{ url('') }}" class="confirm-link">&larr; Confirm Order</a>
+  </div>
   <!-- Centered Go Back button -->
   <div class="go-back-container">
     <a href="{{ url('/home') }}" class="go-back-link">&larr; Go Back</a>

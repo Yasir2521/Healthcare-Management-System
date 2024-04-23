@@ -74,8 +74,12 @@ Route::get('/add_appoin',[AdminController::class,'add_appoin']);
 Route::post('/upload_appoin',[AdminController::class,'upload_appoin']);
 
 Route::post('/cancel_appointment',[AdminController::class,'cancel_appointment']);
+Route::post('/cancel_order',[AdminController::class,'cancel_order']);
 
 
+Route::post('/add_to_cart',[AdminController::class,'add_to_cart']);
+Route::get('/go_to_cart',[AdminController::class,'go_to_cart']);
+Route::post('/update_price',[AdminController::class,'update_price']);
 
 
 Route::get('/blooddelivery',[AdminController::class,'add_blooddelivery_view']);

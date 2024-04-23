@@ -23,6 +23,8 @@ use App\Models\Blood;
 use App\Models\appoin;
 use App\Models\Schedule;
 
+
+
 class AdminController extends Controller
 {
     public function cancel_appointment(Request $request)
@@ -355,8 +357,103 @@ class AdminController extends Controller
     }
 
 
+ 
+    
+    public function add_to_cart(Request $request)
+    {
+        // Get the medicine ID from the request
+        $medicineId = $request->input('user_id');
 
 
+        // Check if the medicine is already in the cart
+        $existingOrder = OrderMedicine::where('medicine_id', $medicineId)
+                                    ->where('userid', Auth::user()->id)
+                                    ->first();
+
+        // If the medicine is already in the cart, redirect back with a message
+        if ($existingOrder) {
+            return redirect()->back()->with('message', 'Medicine already in the cart.');
+        }
+
+        // Fetch the medicine details from the Medi model
+        $medicine = Medi::find($medicineId);
+
+        // Create a new instance of OrderMedicine
+        $orderMedicine = new OrderMedicine();
+
+        // Set the attributes of the order
+        $orderMedicine->name = $medicine->name;
+        $orderMedicine->power = $medicine->power;
+        // Add other attributes as needed
+
+        // For the sake of demonstration, assuming 'amount' and 'totalprice' come directly from the medicine
+        $orderMedicine->amount = $medicine->amount;
+        $orderMedicine->totalprice = $medicine->amount; // Assuming totalprice is the same as amount initially
+        $orderMedicine->quantity = 1; // Assuming the default quantity is 1
+        $orderMedicine->userid = Auth::user()->id;
+        $orderMedicine->medicine_id = $medicineId;
+
+        // Save the order
+        $orderMedicine->save();
+
+        // Redirect back with success message
+        return redirect()->back()->with('message', 'Medicine ordered successfully');
+    }
+
+
+    public function go_to_cart()
+    {
+        // Get the authenticated doctor's ID
+        $userID = Auth::user()->id;
+
+    // Fetch all the appointments where doctor_id matches $doctorID
+        $orders = ordermedicine::where('userid', $userID)->get();
+        $totalAmount = $orders->sum('totalprice');
+        return view('user.cart', ['orders' => $orders, 'totalAmount' => $totalAmount]);
+    }
+
+    public function update_price(Request $request)
+    {
+        // Get the user ID and quantity from the form submission
+        $userId = $request->input('user_id');
+        $quantity = $request->input('quantity');
+    
+        // Retrieve the order based on the user ID
+        $order = OrderMedicine::where('medicine_id', $userId)
+                              ->where('userid', Auth::user()->id)
+                              ->first();
+    
+        // If order is found, update the quantity and total price
+        if ($order) {
+            // Update the quantity
+            $order->quantity = $quantity;
+    
+            // Multiply the quantity by the amount to calculate the new total price
+            $order->totalprice = $quantity * $order->amount;
+    
+            // Save the changes
+            $order->save();
+    
+            // Redirect back with success message
+            return redirect()->back()->with('message', 'Quantity updated successfully.');
+        } else {
+            // Order not found, handle accordingly
+            return redirect()->back()->with('error', 'Order not found.');
+        }
+    }
+
+    public function cancel_order(Request $request)
+{
+    $id = $request->input('id');
+    // Retrieve the appointment by its ID
+    $order = ordermedicine::findOrFail($id);
+
+    // Delete the appointment
+    $order->delete();
+
+    // Redirect back with a success message
+    return redirect()->back()->with('success', 'Removed medicine successfully.');
+}
 
 
 }

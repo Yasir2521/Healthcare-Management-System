@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('quantity');
             $table->string('totalprice');
             $table->string('userid');
+            $table->string('medicine_id');
             
 
             $table->timestamps();
