@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>All Reviews</title>
+    <title>Seminar's Schedule</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -60,42 +60,32 @@
 <body>
 
 <div class="container">
-    <h1>Feedbacks from Patients</h1>
+    <h1>Hospital's List</h1>
     <table class="table">
         <thead>
             <tr>
-                <th>Date</th>
-                <th>Review</th> <!-- Change to the appropriate field -->
-                
-                
+                <th>Hospital Name</th>
+                <th>Hospital Location</th> <!-- Change to the appropriate field -->
+                <th>Hospital Website</th> <!-- Change to the appropriate field -->
                 
                  
                 
-
-                <th>Rating</th>
-
             </tr>
         </thead>
         <tbody>
-            @foreach ($reviwe as $reviwes )
+            @foreach ($hospital as $hospitals)
                 <tr>
-                    <td>{{ $reviwes->created_at }}</td>
-                    <td>{{ $reviwes->comment }}</td>
+                    <td>{{ $hospitals->name }}</td>
+                    <td>{{ $hospitals->location }}</td>
+                    <td>{{ $hospitals->website }}</td>
+            
                     
-                    
-                    
-
-                    <td>
-                        @for ($i = 0; $i < $reviwes->rating; $i++)
-                            ⭐
-                        @endfor
-                    </td>
-
+                    <!-- Add more columns as needed -->
                 </tr>
             @endforeach
         </tbody>
     </table>
     <a href="{{ url('/home') }}" class="button">Go Back</a>
-</div>
 
+</div>
 

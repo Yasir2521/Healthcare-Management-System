@@ -34,6 +34,8 @@ Route::get('/add_delivery_view',[AdminController::class,'add_delivery_view']);
 Route::get('/add_doctor_view',[AdminController::class,'addview']);
 
 Route::post('/upload_doctor',[AdminController::class,'upload']);
+Route::get('/add_deliveryman_view',[AdminController::class,'add_del_view']);
+Route::post('/upload_deliveryman',[AdminController::class,'add_deliveryman']);
 Route::get('/add_seminar_view',[AdminController::class,'addseminar']);
 Route::post('/upload_seminar',[AdminController::class,'uploadseminar']);
 
@@ -54,6 +56,8 @@ Route::get('/seminar_view', [AppointmentController::class, 'seminar_view']);
 Route::get('/seminar', [AboutController::class, 'seminar'])->name('seminar');
 Route::get('/blood_view', [AppointmentController::class, 'blood_view']);
 Route::get('/medicine_view', [AppointmentController::class, 'medicine_view']);
+Route::get('/vehicle_view', [AppointmentController::class, 'vehicle_view']);
+Route::get('/hospital_view', [AppointmentController::class, 'hospital_view']);
 Route::get('/see_review_view', [AppointmentController::class, 'review_view']);
 Route::get('/add_medicine_view',[AdminController::class,'add_medicine_view']);
 Route::post('/upload_medicine',[AdminController::class,'upload_medicine']);
@@ -69,13 +73,24 @@ Route::post('/upload_transportation', [AdminController::class, 'upload_transport
 Route::get('/add_appoin',[AdminController::class,'add_appoin']);
 Route::post('/upload_appoin',[AdminController::class,'upload_appoin']);
 
+Route::post('/cancel_appointment',[AdminController::class,'cancel_appointment']);
+
+
+
+
 Route::get('/blooddelivery',[AdminController::class,'add_blooddelivery_view']);
 Route::post('/upload_blooddelivery',[AdminController::class,'upload_blooddelivery']);
-
+ 
 Route::get('/ordermedicine',[AdminController::class,'add_ordermedicine_view']);
 Route::post('/upload_ordermedicine',[AdminController::class,'upload_ordermedicine']);
 
 
+Route::get('/doctor_view_appointments',[AdminController::class,'doctor_view_appointments']);
+Route::get('/doc_up_schedule',[AdminController::class,'doc_up_schedule']);
+Route::post('/updated_schedule',[AdminController::class,'updated_schedule']);
+
+
+Route::get('/user_view_appointments',[AdminController::class,'user_view_appointments']);
 
 
 
@@ -98,6 +113,7 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
+
 
 // Route::middleware([
 //     'auth:sanctum',

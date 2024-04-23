@@ -53,7 +53,7 @@
 </head>
 <body>
     <div class="register-container">
-        <h2 style="text-align: center;">ADD NEW DOCTOR</h2>
+        <h2 style="text-align: center;">ADD NEW DELIVERY MAN</h2>
         @if(session()->has('message'))
             <div class = "alert alert-success">
 
@@ -61,7 +61,7 @@
 
             </div>
         @endif
-        <form action="{{url('upload_doctor')}}" method="POST" enctype="multipart/form-data">
+        <form action="{{url('upload_deliveryman')}}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="form-group">
                 <label for="name">Name</label>

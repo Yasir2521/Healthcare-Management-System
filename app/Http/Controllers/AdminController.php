@@ -20,9 +20,84 @@ use App\Models\User;
 use App\Models\medi;
 
 use App\Models\Blood;
+use App\Models\appoin;
+use App\Models\Schedule;
 
 class AdminController extends Controller
 {
+    public function cancel_appointment(Request $request)
+{
+    $id = $request->input('id');
+    // Retrieve the appointment by its ID
+    $appointment = appoin::findOrFail($id);
+
+    // Delete the appointment
+    $appointment->delete();
+
+    // Redirect back with a success message
+    return redirect()->back()->with('success', 'Appointment canceled successfully.');
+}
+
+    public function doc_up_schedule()
+    {
+        $doctorID = Auth::user()->id;
+
+    
+        $schedule = Schedule::where('user_id', $doctorID)->get();
+
+        return view('doctor.update_schedule',['schedule' => $schedule]);
+    }
+    public function updated_schedule(Request $request)
+    {
+        $doctorID = Auth::user()->id;
+
+        // Retrieve the schedule for the authenticated doctor
+        $schedule = Schedule::where('user_id', $doctorID)->firstOrFail();
+    
+        // Assuming $request contains validated data
+        $validatedData = $request->all();
+    
+        // Update schedule properties
+        $schedule->specialty = $validatedData['specialty'];
+        $schedule->appointment_days = json_encode($validatedData['appointment_days']); // Convert array to JSON string
+        $schedule->date = $validatedData['date'];
+        $schedule->time = $validatedData['time'];
+    
+        // Save the updated schedule
+        $schedule->save();
+
+        return redirect()->back()->with('message','Schedule updated Successfully');
+    }
+
+
+
+
+    public function doctor_view_appointments()
+    {
+    // Get the authenticated doctor's ID
+    $doctorID = Auth::user()->id;
+
+    // Fetch all the appointments where doctor_id matches $doctorID
+    $appointments = Appoin::where('doctor_id', $doctorID)->get();
+
+    // Pass the appointments data to the view
+    return view('doctor.doc_appointments', ['appointments' => $appointments]);
+    }
+
+
+    public function user_view_appointments()
+    {
+    // Get the authenticated doctor's ID
+    $userID = Auth::user()->id;
+
+    // Fetch all the appointments where doctor_id matches $doctorID
+    $appointments = Appoin::where('patient_id', $userID)->with('doctor')->get();
+
+    // Pass the appointments data to the view
+    return view('user.view_appointments', ['appointments' => $appointments]);
+    }
+
+
     public function addview()
     {
         return view('admin.add_doctor');
@@ -30,19 +105,42 @@ class AdminController extends Controller
 
     public function upload(Request $request)
     {
-        $doctor = new doctor;
-        $image = $request->file;
-    $imagename = time().'.'.$image->getClientoriginalExtension();
-    $request->file->move('doctorimage',$imagename);
-    $doctor->image=$imagename;
-
+    $doctor = new User;
     $doctor->name=$request->name;
-    $doctor->phone=$request->number;
     $doctor->email=$request->email;
-    $doctor->speciality=$request->speciality;
+    $doctor->phone=$request->phone;
+    $doctor->adress=$request->adress;
+    $doctor->usertype='2';
+    $hashedPassword = bcrypt($request->password);
+
+    $doctor->password=$hashedPassword;
+
+        
 
     $doctor->save();
     return redirect()->back()->with('message','Doctor Added Successfully');
+    
+    }
+
+    public function add_del_view()
+    {
+        return view('admin.add_deliveryman');
+    }
+
+    public function add_deliveryman(Request $request)
+    {
+    $deliveryman = new User;
+    $deliveryman->name=$request->name;
+    $deliveryman->email=$request->email;
+    $deliveryman->phone=$request->phone;
+    $deliveryman->adress=$request->adress;
+    $deliveryman->usertype='3';
+    $hashedPassword = bcrypt($request->password);
+
+    $deliveryman->password=$hashedPassword;
+
+    $deliveryman->save();
+    return redirect()->back()->with('message','Delivery Man Added Successfully');
     
     }
     public function addseminar()
@@ -108,6 +206,7 @@ class AdminController extends Controller
     $add_medicine->manufacture_date = $request->manufacture_date;
     $add_medicine->expiry_date = $request->expiry_date;
     $add_medicine->disease_type = $request->disease_type;
+    $add_medicine->amount = $request->amount;
     
     $add_medicine->image_path = $imageName; // Assuming the image path is stored in the 'image_path' column
 
@@ -182,15 +281,15 @@ class AdminController extends Controller
    
     public function upload_blooddelivery(Request $request)
     {
-        $user = auth()->user();
+       
         $blooddelivery = new blooddelivery();
 
     // Handle file upload
     
     
     // Store form data in database
-    $blooddelivery->id = $user->id;
-    $blooddelivery->user_id = $user->id;
+    
+    $blooddelivery->user_id = Auth::user()->id;
     $blooddelivery->email = $request->email;
     $blooddelivery->address = $request->address;
     
@@ -201,9 +300,30 @@ class AdminController extends Controller
     return redirect()->back()->with('message', 'Blood Ordered successfully');
     }
 
-    public function add_appoin()
+    public function add_appoin(Request $request)
     {
-        return view('user.add_appoin');
+        $user_id = $request->query('user_id');
+        return view('user.add_appoin', compact('user_id'));
+    }
+
+    public function upload_appoin(Request $request)
+    {
+        
+        $appoin = new appoin();
+        
+    
+    $appoin->name=$request->name;
+    $appoin->age=$request->age;
+    $appoin->type=$request->type;
+    $appoin->number=$request->number;
+    $appoin->description=$request->description;
+    $appoin->patient_id = Auth::user()->id;
+    $doctorId = $request->query('user_id');
+    $appoin->doctor_id = $doctorId;
+    
+
+    $appoin->save();
+    return redirect()->back()->with('message','Appointment Taken Successfully');
     }
 
 
@@ -233,6 +353,7 @@ class AdminController extends Controller
     // Redirect back with success message
     return redirect()->back()->with('message', 'Medicine Ordered successfully');
     }
+
 
 
 

@@ -184,14 +184,15 @@
     <div class="sidebar">
         <!-- <a href="/teacher-dashboard"><i class="fas fa-desktop"></i><span>Dashboard</span></a> -->
         <a href="{{url('appointment_view')}}"><i class="fas fa-chalkboard-teacher"></i><span>Take Appointments</span></a>
-        <a href="{{url('doctor_view')}}"><i class="fas fa-address-card"></i><span>Doctor's List</span></a>
+        <a href="{{url('user_view_appointments')}}"><i class="fas fa-address-card"></i><span>View Appointments</span></a>
         <a href="{{url('schedule_view')}}"><i class="fas fa-bullhorn"></i><span>Doctor's Schedule</span></a>
         <a href="{{url('blood_view')}}"><i class="fas fa-address-card"></i><span>Available Bloods</span></a>
         <a href="{{url('medicine_view')}}"><i class="fas fa-address-card"></i><span>Available Medicines</span></a>
         <a href="{{url('seminar_view')}}"><i class="fas fa-bullhorn"></i><span>Seminar</span></a>
-        <a href="/admin-notice"><i class="fas fa-bullhorn"></i><span>Emergency</span></a>
+        <a href="{{url('vehicle_view')}}"><i class="fas fa-bullhorn"></i><span>Available Transports</span></a>
         <a href="{{url('review_view')}}"><i class="fas fa-bullhorn"></i><span>Give Feedback</span></a>
         <a href="{{url('see_review_view')}}"><i class="fas fa-bullhorn"></i><span>See Feedbacks</span></a>
+        <a href="{{url('hospital_view')}}"><i class="fas fa-bullhorn"></i><span>Hospital's List</span></a>
         
     
     </div>

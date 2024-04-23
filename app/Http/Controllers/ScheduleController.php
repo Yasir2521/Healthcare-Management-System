@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 use App\Models\Schedule;
 
@@ -27,16 +28,17 @@ class ScheduleController extends Controller
         ]);
 
         // Create a new DoctorSchedule instance
-        $user = auth()->user();
+        
         $schedule = new Schedule();
         $schedule->specialty = $validatedData['specialty'];
         $schedule->appointment_days = json_encode($validatedData['appointment_days']); // Convert array to JSON string
         $schedule->date = $validatedData['date'];
         $schedule->time = $validatedData['time'];
-        $schedule->id = $user->id;
+        $schedule->user_id = Auth::user()->id;
 
         // Save the schedule to the database
         $schedule->save();
+        
 
         // Redirect the user after successful submission (you may modify this according to your application logic)
         return redirect()->back()->with('message', 'Schedule created successfully');

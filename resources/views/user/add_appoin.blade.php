@@ -102,14 +102,14 @@
         @endif        
         <h2>Request Appointment</h2>
 
-        <form action="{{ url('upload_appoin') }}" method="POST" class="blood-form">
+        <form action="{{ url('upload_appoin') }}?user_id={{ $user_id }}" method="POST" class="blood-form">
             @csrf
 
             <label for="name">Name:</label>
             <input type="text" id="name" name="name" required>
 
             <label for="number">age:</label>
-            <input type="text" id="number" name="number" required>
+            <input type="text" id="number" name="age" required>
 
             <label for="type">Blood Group:</label>
             <select id="type" name="type" required>

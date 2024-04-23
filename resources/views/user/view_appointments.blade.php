@@ -95,7 +95,7 @@ tr:hover {
 .take-appointment-link {
   display: inline-block;
   padding: 10px 20px;
-  background-color: #007bff;
+  background-color: #FF0000;
   color: #fff;
   text-decoration: none;
   border-radius: 4px;
@@ -115,45 +115,36 @@ tr:hover {
     <thead>
       <tr>
         <th>Doctor's Name</th>
-        <th>Specialty</th>
-        <th>Schedules</th>
-        <th>Time</th>
-        <th>Action</th> <!-- Added a new column for actions -->
+        <th>Age</th>
+        <th>Blood Group</th>
+        <th>Phone Number</th>
+        <th>Patients History</th>
+        <th>Action</th>
       </tr>
     </thead>
     <tbody>
-      @foreach ($schedule as $schedules)
+    @foreach ($appointments as $appointment)
         <tr>
-          <td>
-            @if ($schedules->user)
-              {{ $schedules->user->name }}
-            @else
-              No User Assigned
-            @endif
-          </td>
-          <td>{{ $schedules->specialty }}</td>
-          <td>{{ $schedules->appointment_days }}</td>
-          <td>{{ $schedules->time }}</td>
-
-
-          <td><a href="#" class="take-appointment-link">Take Appointment</a></td> <!-- Changed to anchor tag for better visibility -->
-
-          <td><a href="{{url('/add_appoin')}}" class="take-appointment-link">Take Appointment</a></td> <!-- Changed to anchor tag for better visibility -->
-
-
-          <td><a href="{{ url('/add_appoin') }}?user_id={{ $schedules->user_id }}" class="take-appointment-link">Take Appointment</a></td>
-
+          
+          <td>{{ $appointment->doctor->name }}</td>
+          <td>{{ $appointment->age }}</td>
+          <td>{{ $appointment->type }}</td>
+          <td>{{ $appointment->number }}</td>
+          <td>{{ $appointment->description }}</td>
+          <td><form action="{{ url('/cancel_appointment') }}" method="POST">
+    @csrf
+    <input type="hidden" name="id" value="{{ $appointment->id }}">
+    <button type="submit" class="take-appointment-link" onclick="return confirm('Are you sure you want to cancel this appointment?')">Cancel Appointment</button>
+</form>
+</td>
         </tr>
       @endforeach
     </tbody>
-  </table>
+  </table><br>
   
   <!-- Button to go back -->
   <a href="{{ url('/home') }}" class="go-back-link">&larr; Go Back</a>
 </div>
 
 </body>
-
-</html>
-
 </html>
