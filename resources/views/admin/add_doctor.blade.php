@@ -7,7 +7,7 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: yellow, white, yellow;
+            background-color: white; /* Adjust background color here */
             margin: 0;
             padding: 0;
             display: flex;
@@ -16,7 +16,8 @@
             height: 100vh;
         }
         .register-container {
-            background-color: #b8e994;
+            background-image: url('img1/laptop-keyboard-stethoscope-on-blue-260nw-1907543080.webp'); /* Change background color to black */
+            color: black; /* Change text color to white for better contrast */
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -39,7 +40,7 @@
         .form-group button {
             width: 100%;
             padding: 10px;
-            background-color: #007bff;
+            background-color: #2ECC71 ;
             color: #fff;
             border: none;
             border-radius: 4px;
@@ -55,10 +56,8 @@
     <div class="register-container">
         <h2 style="text-align: center;">ADD NEW DOCTOR</h2>
         @if(session()->has('message'))
-            <div class = "alert alert-success">
-
-               {{session()->get('message')}}
-
+            <div class="alert alert-success">
+                {{session()->get('message')}}
             </div>
         @endif
         <form action="{{url('upload_doctor')}}" method="POST" enctype="multipart/form-data">
@@ -76,8 +75,8 @@
                 <input id="phone" type="text" name="phone" required>
             </div>
             <div class="form-group">
-                <label for="adress">Address</label>
-                <input id="adress" type="text" name="adress" required>
+                <label for="address">Address</label>
+                <input id="address" type="text" name="address" required>
             </div>
             <div class="form-group">
                 <label for="password">Password</label>

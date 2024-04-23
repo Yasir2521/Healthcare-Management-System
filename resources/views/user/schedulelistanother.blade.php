@@ -21,9 +21,6 @@ body {
 table {
   width: 100%;
   border-collapse: collapse;
-  background-color: #fff;
-  border-radius: 8px;
-  overflow: hidden;
 }
 
 th, td {
@@ -118,10 +115,8 @@ tr:hover {
     <thead>
       <tr>
         <th>Doctor's Name</th>
-        <th>Specialty</th>
-        <th>Appointment Days</th> <!-- Changed column name -->
-        <th>Time</th>
-        <th>Action</th>
+        
+        <th>Action</th> <!-- Added a new column for actions -->
       </tr>
     </thead>
     <tbody>
@@ -134,24 +129,9 @@ tr:hover {
               No User Assigned
             @endif
           </td>
-          <td>{{ $schedules->specialty }}</td>
-          <td>
-            <select>
-              @foreach(json_decode($schedules->appointment_days) as $day)
-                <option>{{ $day }}</option>
-              @endforeach
-            </select>
-          </td>
-          <td>{{ $schedules->time }}</td>
-
-
-          <td><a href="#" class="take-appointment-link">Take Appointment</a></td> <!-- Changed to anchor tag for better visibility -->
-
-          <td><a href="{{url('/add_appoin')}}" class="take-appointment-link">Take Appointment</a></td> <!-- Changed to anchor tag for better visibility -->
-
-
-          <td><a href="{{ url('/add_appoin') }}?user_id={{ $schedules->user_id }}" class="take-appointment-link">Take Appointment</a></td>
-
+          
+          
+          <td><a href="{{ url('/add_message') }}?user_id={{ $schedules->user_id }}" class="take-appointment-link">Send Message</a></td>
         </tr>
       @endforeach
     </tbody>
@@ -162,9 +142,4 @@ tr:hover {
 </div>
 
 </body>
-
-
-
 </html>
-
-

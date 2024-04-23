@@ -64,6 +64,18 @@
                   </li>
               @endif
 
+              @if (Route::has('tip'))
+                  <li class="nav-item">
+                    <a class="nav-link" href="{{url('tip')}}">Health Tips From Our Doctors</a>
+                  </li>
+              @endif
+
+              @if (Route::has('review'))
+                  <li class="nav-item">
+                    <a class="nav-link" href="{{url('review')}}">Reviews from Our Patients</a>
+                  </li>
+              @endif
+
                   
                           
             </ul>

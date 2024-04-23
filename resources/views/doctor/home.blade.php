@@ -177,9 +177,9 @@
   <div class="sidebar">
     <a href="/admin-dashboard"><i class="fas fa-desktop"></i><span>Profile</span></a>
     <a href="{{url('doctor_view_appointments')}}"><i class="fas fa-chalkboard-teacher"></i><span>Appointments</span></a>
-    <a href="/admin-student"><i class="fas fa-user-graduate"></i><span>Patient Details</span></a>
     <a href="{{url('doctorscheduleview')}}"><i class="fas fa-address-card"></i><span>Schedules</span></a>
-    <a href="/admin-fee"><i class="fas fa-search-dollar"></i><span>Emergency</span></a>
+    <a href="{{url('add_tip_view')}}"><i class="fas fa-search-dollar"></i><span>Give Health Tips</span></a>
+    <a href="{{url('tip_view')}}"><i class="fas fa-search-dollar"></i><span>See Health Tips</span></a>
     <a href="{{url('seminar_view')}}"><i class="fas fa-search-dollar"></i><span>Seminar</span></a>
   </div>
   

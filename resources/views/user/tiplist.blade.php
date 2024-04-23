@@ -60,30 +60,21 @@
 <body>
 
 <div class="container">
-    <h1>Hospital's List</h1>
+    <h1>Doctors Giving Health Tips</h1>
     <table class="table">
         <thead>
             <tr>
-                <th>Hospital Name</th>
-                <th>Hospital Location</th> <!-- Change to the appropriate field -->
-                <th>Hospital Website</th> <!-- Change to the appropriate field -->
-                
+                <th>Title</th>
+                <th>Description</th>
                  
                 
             </tr>
         </thead>
         <tbody>
-            @foreach ($hospital as $hospitals)
+            @foreach ($tip as $tips)
                 <tr>
-                    <td>{{ $hospitals->name }}</td>
-                    <td>{{ $hospitals->location }}</td>
-
-                    <td><a href="{{ $hospitals->website }}">{{ $hospitals->website }}</a></td>
-
-                    <td><a href="{{ $hospitals->website }}" target="_blank">{{ $hospitals->website }}</a></td>
-
-
-            
+                    <td>{{ $tips->name }}</td>
+                    <td>{{ $tips->description }}</td>
                     
                     <!-- Add more columns as needed -->
                 </tr>

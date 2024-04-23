@@ -22,6 +22,8 @@ use App\Models\medi;
 use App\Models\Blood;
 use App\Models\appoin;
 use App\Models\Schedule;
+use App\Models\tip;
+
 
 
 
@@ -162,6 +164,27 @@ class AdminController extends Controller
     $seminar->save();
     return redirect()->back()->with('message','Seminar Details Added Successfully');
     }
+
+    
+    public function addtip()
+    {
+        return view('admin.add_tips');
+    }
+
+    public function uploadtip(Request $request)
+    {
+        $tip = new tip; 
+    
+    $tip->name=$request->name;
+    $tip->date=$request->date;
+    $tip->time=$request->time;
+    $tip->description=$request->description;
+
+    $tip->save();
+    return redirect()->back()->with('message','Seminar Details Added Successfully');
+    }
+
+
 
     public function add_delivery_view()
     {
@@ -328,6 +351,12 @@ class AdminController extends Controller
     return redirect()->back()->with('message','Appointment Taken Successfully');
     }
 
+    public function viewDoctorsForMessaging()
+    {
+
+        $schedule = Schedule::with('user')->get();
+        return view('user.schedulelistanother',compact('schedule'));
+    }
 
     public function add_ordermedicine_view()
     {
@@ -454,6 +483,5 @@ class AdminController extends Controller
     // Redirect back with a success message
     return redirect()->back()->with('success', 'Removed medicine successfully.');
 }
-
 
 }

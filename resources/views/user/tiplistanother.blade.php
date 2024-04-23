@@ -60,37 +60,30 @@
 <body>
 
 <div class="container">
-    <h1>Hospital's List</h1>
+    <h1>Seminars and their Details</h1>
     <table class="table">
         <thead>
             <tr>
-                <th>Hospital Name</th>
-                <th>Hospital Location</th> <!-- Change to the appropriate field -->
-                <th>Hospital Website</th> <!-- Change to the appropriate field -->
-                
+                <th>Title</th>
+                <th>Description</th>
                  
                 
             </tr>
         </thead>
         <tbody>
-            @foreach ($hospital as $hospitals)
+            @foreach ($tip as $tips)
                 <tr>
-                    <td>{{ $hospitals->name }}</td>
-                    <td>{{ $hospitals->location }}</td>
-
-                    <td><a href="{{ $hospitals->website }}">{{ $hospitals->website }}</a></td>
-
-                    <td><a href="{{ $hospitals->website }}" target="_blank">{{ $hospitals->website }}</a></td>
-
-
-            
+                    <td>{{ $tips->name }}</td>
+                    
+                    
+                    <td>{{ $tips->description }}</td>
                     
                     <!-- Add more columns as needed -->
                 </tr>
             @endforeach
         </tbody>
     </table>
-    <a href="{{ url('/home') }}" class="button">Go Back</a>
+    <a href="http://127.0.0.1:8000/" class="button">Go Back</a>
 
 </div>
 

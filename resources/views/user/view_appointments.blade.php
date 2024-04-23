@@ -125,8 +125,14 @@ tr:hover {
     <tbody>
     @foreach ($appointments as $appointment)
         <tr>
+          <td>
           
-          <td>{{ $appointment->doctor->name }}</td>
+            @if ($appointment->doctor)
+              {{ $appointment->doctor->name }}
+            @else
+              No User Assigned
+            @endif
+          </td>
           <td>{{ $appointment->age }}</td>
           <td>{{ $appointment->type }}</td>
           <td>{{ $appointment->number }}</td>

@@ -120,6 +120,18 @@
 
 
 							</div>
+							<div class="col-lg-2 col-12 d-flex justify-content-end">
+
+								<div class="get-quote">
+                                    @if (Route::has('hospital'))
+
+                                        <a href="{{ route('hospital') }}" class="btn">Hospitals We are connected with</a>
+                                    @endif
+								</div>
+								
+
+
+							</div>
 						</div>
 					</div>
 				</div>
@@ -413,7 +425,7 @@
 							<div class="news-body">
 								<div class="news-content">
 									<div class="date">20 February, 2024</div>
-									<h2><a href="blog-single.html">Exercise at Home.</a></h2>
+									<h2><a href="{{ url('/homeexercise') }}">Exercise at Home.</a></h2>
 									<p class="text">Staying active at home is easier than ever with a variety of exercises that require little to no equipment.</p>
 								</div>
 							</div>
@@ -427,7 +439,7 @@
 							<div class="news-body">
 								<div class="news-content">
 									<div class="date">29 January, 2024</div>
-									<h2><a href="blog-single.html">Delicious Disease fighting foods.</a></h2>
+									<h2><a href="{{ url('/goodfood') }}">Delicious Disease fighting foods.</a></h2>
 									<p class="text">Delicious disease-fighting foods are abundant and offer a tasty way to boost immunity and promote overall health.</p>
 								</div>
 							</div>
@@ -441,7 +453,7 @@
 							<div class="news-body">
 								<div class="news-content">
 									<div class="date">1 March, 2024</div>
-									<h2><a href="blog-single.html">10 Simple ways to relieve Stress and Anxiety</a></h2>
+									<h2><a href="{{ url('/anxiety') }}">10 Simple ways to relieve Stress and Anxiety</a></h2>
 									<p class="text">Managing stress and anxiety doesn't have to be complicated.</p>
 								</div>
 							</div>

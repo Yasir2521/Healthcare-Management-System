@@ -100,34 +100,19 @@
             {{session()->get('message')}}
         </div>
         @endif        
-        <h2>Add Blood</h2>
+        <h2>Send Message</h2>
 
-        <form action="{{ url('upload_blood') }}" method="POST" class="blood-form">
+        <form action="{{ url('upload_message') }}?user_id={{ $user_id }}" method="POST" class="blood-form">
             @csrf
 
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required>
+            <label for="send_message">Send Message:</label>
+            <input type="text" id="send_message" name="send_message" required>
 
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
+            
 
-            <label for="type">Blood Type:</label>
-            <select id="type" name="type" required>
-                <option>--Select</option>
-                <option value="A+">A+</option>
-                <option value="A-">A-</option>
-                <option value="B+">B+</option>
-                <option value="B-">B-</option>
-                <option value="AB+">AB+</option>
-                <option value="AB-">AB-</option>
-                <option value="O+">O+</option>
-                <option value="O-">O-</option>
-            </select>
+           
 
-            <label for="phone">Phone:</label>
-            <input type="text" id="number" name="number" required>
-
-            <input type="submit" value="Add Blood">
+            <input type="submit" value="Submit request">
 
             
         </form>
