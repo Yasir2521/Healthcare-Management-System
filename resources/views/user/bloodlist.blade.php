@@ -80,7 +80,11 @@
                     <td>{{ $bloods->email }}</td>
                     <td>{{ $bloods->type }}</td>
                     <td>{{ $bloods->phone }}</td>
+
+                    <td><button class="button">Request Blood</button></td>
+
                     <td><a href="{{url('blooddelivery')}}" class="button">Request Blood</a></td>
+
                     
                     <!-- Add more columns as needed -->
                 </tr>

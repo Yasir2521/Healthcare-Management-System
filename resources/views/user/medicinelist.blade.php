@@ -92,8 +92,12 @@
         <td>{{ $add_medicines->type }}</td>
         <td>{{ $add_medicines->manufacture_date }}</td>
         <td>{{ $add_medicines->expiry_date }}</td>
+
+        <td><a href="{{url('ordermedicine')}}" class="order-medicine-link">Order Medicine</a></td> <!-- Added class for button-like styling -->
+
         <td>{{ $add_medicines->amount }}</td>
-        <td><a href="#" class="order-medicine-link">Order Medicine</a></td> <!-- Added class for button-like styling -->
+        
+
       </tr>
       @endforeach
     </tbody>

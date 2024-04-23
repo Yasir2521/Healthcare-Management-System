@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Models\Doctor;
 use App\Models\seminar;
 
+use App\Models\ordermedicine;
+
 use App\Models\hospital;
 use App\Models\vehicle;
 
@@ -323,6 +325,36 @@ class AdminController extends Controller
     $appoin->save();
     return redirect()->back()->with('message','Appointment Taken Successfully');
     }
+
+
+    public function add_ordermedicine_view()
+    {
+        return view('user.ordermedicine');
+    }
+   
+    public function upload_ordermedicine(Request $request)
+    {
+        $user = auth()->user();
+        $ordermedicine = new ordermedicine();
+
+    // Handle file upload
+    
+    
+    // Store form data in database
+    $ordermedicine->name = $request->name;
+    $ordermedicine->power = $request->power;
+    $ordermedicine->amount = $request->amount;
+    $ordermedicine->quantity = $request->quantity;
+    $ordermedicine->totalprice = $request->totalprice;
+    $ordermedicine->userid = $request->userid;
+
+    $ordermedicine->save();
+
+    // Redirect back with success message
+    return redirect()->back()->with('message', 'Medicine Ordered successfully');
+    }
+
+
 
 
 
