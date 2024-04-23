@@ -224,22 +224,27 @@ class AdminController extends Controller
     return redirect()->back()->with('message', 'Blood Ordered successfully');
     }
 
-    public function add_appoin()
+    public function add_appoin(Request $request)
     {
-        return view('user.add_appoin');
+        $user_id = $request->query('user_id');
+        return view('user.add_appoin', compact('user_id'));
     }
 
     public function upload_appoin(Request $request)
     {
-        $user = auth()->user();
-        $appoin = new appoin(); 
+        
+        $appoin = new appoin();
+        
     
     $appoin->name=$request->name;
     $appoin->age=$request->age;
     $appoin->type=$request->type;
     $appoin->number=$request->number;
     $appoin->description=$request->description;
-    $appoin->id = $user->id;
+    $appoin->patient_id = Auth::user()->id;
+    $doctorId = $request->query('user_id');
+    $appoin->doctor_id = $doctorId;
+    
 
     $appoin->save();
     return redirect()->back()->with('message','Appointment Taken Successfully');

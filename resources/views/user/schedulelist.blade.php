@@ -134,7 +134,7 @@ tr:hover {
           <td>{{ $schedules->specialty }}</td>
           <td>{{ $schedules->appointment_days }}</td>
           <td>{{ $schedules->time }}</td>
-          <td><a href="{{url('/add_appoin')}}" class="take-appointment-link">Take Appointment</a></td> <!-- Changed to anchor tag for better visibility -->
+          <td><a href="{{ url('/add_appoin') }}?user_id={{ $schedules->user_id }}" class="take-appointment-link">Take Appointment</a></td>
         </tr>
       @endforeach
     </tbody>

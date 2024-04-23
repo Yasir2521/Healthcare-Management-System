@@ -64,6 +64,7 @@ class AppointmentController extends Controller
 
     public function schedule_view()
     {
+        
         $schedule = Schedule::with('user')->get();
         return view('user.schedulelist',compact('schedule'));
     }

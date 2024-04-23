@@ -73,6 +73,8 @@ Route::post('/upload_transportation', [AdminController::class, 'upload_transport
 Route::get('/add_appoin',[AdminController::class,'add_appoin']);
 Route::post('/upload_appoin',[AdminController::class,'upload_appoin']);
 
+
+
 Route::get('/blooddelivery',[AdminController::class,'add_blooddelivery_view']);
 Route::post('/upload_blooddelivery',[AdminController::class,'upload_blooddelivery']);
 
