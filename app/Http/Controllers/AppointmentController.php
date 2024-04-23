@@ -33,11 +33,13 @@ class AppointmentController extends Controller
         ]);
     
         // Create an instance using the validated data
+        $user = auth()->user();
         $appointment = new patient_appointment();
         $appointment->doctor_name = $validatedData['doctor_name'];
         $appointment->phone = $validatedData['phone'];
         $appointment->sex = $validatedData['sex'];
         $appointment->specialty = $validatedData['specialty'];
+        $appointment->id = $user->id;
 
 
         $appointment->save();
@@ -88,5 +90,7 @@ class AppointmentController extends Controller
         return view('user.reviewlist',compact('reviwe'));
     }
     
+    
+
 
 }

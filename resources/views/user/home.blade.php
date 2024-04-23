@@ -22,10 +22,15 @@
         color: #fff;
         margin: 0;
         text-transform: uppercase;
-        font-size: 24px;
+
+        font-size: 20px;
+
+        font-size: 21px;
+
         font-weight: 700;
         letter-spacing: 2px;
         }
+       
 
         .logout_btn {
         padding: 8px 15px;
@@ -164,6 +169,7 @@
 
     <input type="checkbox" id="check">
     <!--header area start-->
+    
     <header>
         <label for="check">
         <i class="fas fa-bars" id="sidebar_btn"></i>
@@ -171,6 +177,7 @@
         <div class="left_area">
         <h3>Patient Dashboard</h3>
         </div>
+        
     </header>
     <!--header area end-->
     <!--sidebar start-->
@@ -185,6 +192,7 @@
         <a href="/admin-notice"><i class="fas fa-bullhorn"></i><span>Emergency</span></a>
         <a href="{{url('review_view')}}"><i class="fas fa-bullhorn"></i><span>Give Feedback</span></a>
         <a href="{{url('see_review_view')}}"><i class="fas fa-bullhorn"></i><span>See Feedbacks</span></a>
+        
     
     </div>
 

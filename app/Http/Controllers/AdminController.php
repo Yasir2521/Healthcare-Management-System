@@ -1,10 +1,20 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Http\Request;
 use App\Models\Doctor;
 use App\Models\seminar;
+
+use App\Models\ordermedicine;
+
+use App\Models\hospital;
+use App\Models\vehicle;
+
+
+use App\Models\blooddelivery;
+use App\Models\User;
 
 
 use App\Models\medi;
@@ -106,6 +116,125 @@ class AdminController extends Controller
     // Redirect back with success message
     return redirect()->back()->with('message', 'Medicine added successfully');
     }
+
+    public function add_transportation()
+    {
+    return view('admin.transport');
+    }
+
+
+    public function upload_transportation(Request $request)
+    {
+        $vehicle = new vehicle();
+
+    // Handle file upload
+   
+   
+   
+
+    $vehicle->type=$request->type;
+    $vehicle->phone=$request->phone;
+    $vehicle->number=$request->number;
+    
+     
+
+    $vehicle->save();
+
+    // Redirect back with success message
+    return redirect()->back()->with('message', 'Vehicle added successfully');
+    }
+
+
+
+
+    public function add_hospital_view()
+    {
+        return view('admin.add_hospital');
+    }
+    public function upload_hospital(Request $request)
+    {
+        $hospital = new hospital();
+
+    // Handle file upload
+   
+   
+   
+
+    $hospital->name=$request->name;
+    $hospital->location=$request->location;
+    $hospital->website=$request->website;
+    
+     
+
+    $hospital->save();
+
+    // Redirect back with success message
+    return redirect()->back()->with('message', 'Hospital added successfully');
+    }
+
+
+
+
+    public function add_blooddelivery_view()
+    {
+        return view('admin.blooddelivery');
+    }
+   
+    public function upload_blooddelivery(Request $request)
+    {
+        $user = auth()->user();
+        $blooddelivery = new blooddelivery();
+
+    // Handle file upload
+    
+    
+    // Store form data in database
+    $blooddelivery->id = $user->id;
+    $blooddelivery->user_id = $user->id;
+    $blooddelivery->email = $request->email;
+    $blooddelivery->address = $request->address;
+    
+
+    $blooddelivery->save();
+
+    // Redirect back with success message
+    return redirect()->back()->with('message', 'Blood Ordered successfully');
+    }
+
+    public function add_appoin()
+    {
+        return view('user.add_appoin');
+    }
+
+
+    public function add_ordermedicine_view()
+    {
+        return view('user.ordermedicine');
+    }
+   
+    public function upload_ordermedicine(Request $request)
+    {
+        $user = auth()->user();
+        $ordermedicine = new ordermedicine();
+
+    // Handle file upload
+    
+    
+    // Store form data in database
+    $ordermedicine->name = $request->name;
+    $ordermedicine->power = $request->power;
+    $ordermedicine->amount = $request->amount;
+    $ordermedicine->quantity = $request->quantity;
+    $ordermedicine->totalprice = $request->totalprice;
+    $ordermedicine->userid = $request->userid;
+
+    $ordermedicine->save();
+
+    // Redirect back with success message
+    return redirect()->back()->with('message', 'Medicine Ordered successfully');
+    }
+
+
 
 
 

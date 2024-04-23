@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -56,6 +54,7 @@
     background-color: #0056b3;
 }
 
+
     </style>
 </head>
 <body>
@@ -81,7 +80,11 @@
                     <td>{{ $bloods->email }}</td>
                     <td>{{ $bloods->type }}</td>
                     <td>{{ $bloods->phone }}</td>
+
                     <td><button class="button">Request Blood</button></td>
+
+                    <td><a href="{{url('blooddelivery')}}" class="button">Request Blood</a></td>
+
                     
                     <!-- Add more columns as needed -->
                 </tr>
@@ -91,4 +94,3 @@
     <a href="{{ url('/home') }}" class="button">Go Back</a>
 
 </div>
-
