@@ -24,6 +24,8 @@ use App\Models\appoin;
 use App\Models\Schedule;
 use App\Models\tip;
 
+use App\Models\order;
+
 
 
 
@@ -482,6 +484,35 @@ class AdminController extends Controller
 
     // Redirect back with a success message
     return redirect()->back()->with('success', 'Removed medicine successfully.');
+}
+
+
+public function add_order_view()
+{
+    return view('user.order');
+}
+
+public function upload_order(Request $request)
+{
+    $order = new order();
+
+// Handle file upload
+
+
+// Store form data in database
+$order->name = $request->name;
+$order->address = $request->address;
+$order->phone = $request->phone;
+
+$order->order_list = $request->order_list;
+$order->total_price = $request->total_price;
+$order->payment = $request->payment;
+
+
+$order->save();
+
+// Redirect back with success message
+return redirect()->back()->with('message', 'Order added successfully');
 }
 
 }

@@ -184,7 +184,7 @@
 
 
     <div class="go-back-container">
-    <a href="{{ url('') }}" class="confirm-link">&larr; Confirm Order</a>
+    <a href="{{ url('/add_order_view') }}" class="confirm-link">&larr; Confirm Order</a>
   </div>
   <!-- Centered Go Back button -->
   <div class="go-back-container">

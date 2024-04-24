@@ -128,6 +128,9 @@ Route::post('/upload_schedule',[ScheduleController::class,'store']);
 
 Route::get('/view_doctors_for_messaging', [AdminController::class, 'viewDoctorsForMessaging'])->name('view_doctors_for_messaging');
 
+Route::get('/add_order_view',[AdminController::class,'add_order_view']);
+Route::post('/upload_order',[AdminController::class,'upload_order']);
+
 
 
 
