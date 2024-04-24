@@ -160,12 +160,29 @@
         #check {
         display: none;
         }
+        .alert {
+        background-color: #dff0d8; /* Success alert background color */
+        border: 1px solid #d0e9c6; /* Success alert border color */
+        color: #3c763d; /* Success alert text color */
+        padding: 15px;
+        margin-bottom: 20px;
+        border-radius: 5px;
+    }
     </style>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
     </head>
 
     <body>
+    @if(session()->has('message'))
+
+<div class = "alert alert-success">
+
+
+    {{session()->get('message')}}
+
+</div>
+@endif
 
     <input type="checkbox" id="check">
     <!--header area start-->
@@ -186,6 +203,7 @@
         <a href="{{url('schedule_view')}}"><i class="fas fa-bullhorn"></i><span>Doctor's list</span></a>
         <a href="{{url('blood_view')}}"><i class="fas fa-address-card"></i><span>Available Bloods</span></a>
         <a href="{{url('medicine_view')}}"><i class="fas fa-address-card"></i><span>Available Medicines</span></a>
+        <a href="{{url('view_med_order')}}"><i class="fas fa-address-card"></i><span>Medicine Order History</span></a>
         <a href="{{url('seminar_view')}}"><i class="fas fa-bullhorn"></i><span>Seminar</span></a>
         <a href="{{url('vehicle_view')}}"><i class="fas fa-bullhorn"></i><span>Available Transports</span></a>
         <a href="{{url('review_view')}}"><i class="fas fa-bullhorn"></i><span>Give Feedback</span></a>

@@ -131,7 +131,9 @@ Route::get('/view_doctors_for_messaging', [AdminController::class, 'viewDoctorsF
 Route::get('/add_order_view',[AdminController::class,'add_order_view']);
 Route::post('/upload_order',[AdminController::class,'upload_order']);
 
-
+Route::get('/view_med_order',[AdminController::class,'view_med_order']);
+Route::get('/view_all_orders',[AdminController::class,'view_all_orders']);
+Route::post('/mark_as_paid',[AdminController::class,'mark_as_paid']);
 
 
 Route::middleware([

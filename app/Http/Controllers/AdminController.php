@@ -494,9 +494,24 @@ public function add_order_view()
 
 public function upload_order(Request $request)
 {
-    $order = new order();
+$order = new order();
 
-// Handle file upload
+
+$userID = Auth::user()->id;
+$orderMedicineData = OrderMedicine::where('userid', $userID)->get();
+$totalAmount = $orderMedicineData->sum('totalprice');
+
+$orderList = [];
+
+    // Iterate over each order medicine data
+foreach ($orderMedicineData as $orderMedicine) {
+    // Append (name, quantity) pair to the list
+    $orderList[] = [
+        'name' => $orderMedicine->name,
+        'power' => $orderMedicine->power,
+        'quantity' => $orderMedicine->quantity
+    ];
+}
 
 
 // Store form data in database
@@ -504,15 +519,59 @@ $order->name = $request->name;
 $order->address = $request->address;
 $order->phone = $request->phone;
 
-$order->order_list = $request->order_list;
-$order->total_price = $request->total_price;
-$order->payment = $request->payment;
+$order->order_list = json_encode($orderList);
+$order->total_price = $totalAmount;
+$order->payment = 'Not Paid';
+$order->user_id = $userID;
 
 
 $order->save();
 
+OrderMedicine::where('userid', $userID)->delete();
+
 // Redirect back with success message
-return redirect()->back()->with('message', 'Order added successfully');
+return redirect('/home')->with('message', 'Order added successfully');
 }
+
+public function view_med_order()
+{
+// Get the authenticated doctor's ID
+$userID = Auth::user()->id;
+
+// Fetch all the appointments where doctor_id matches $doctorID
+$orders = order::where('user_id', $userID)->get();
+
+// Pass the appointments data to the view
+return view('user.view_order_history', ['orders' => $orders]);
+}
+
+public function view_all_orders()
+{
+
+
+$orders = order::where('payment', 'Not Paid')->get();
+
+
+return view('delivery.all_orders', ['orders' => $orders]);
+}
+
+public function mark_as_paid(Request $request)
+{
+    $id = $request->input('id');
+    // Retrieve the appointment by its ID
+    $order = order::findOrFail($id);
+
+    // Delete the appointment
+    $order->payment = 'Paid';
+
+    $order->save();
+
+    // Redirect back with a success message
+    return redirect()->back()->with('success', 'Payment done successfully.');
+}
+
+
+
+
 
 }

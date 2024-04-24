@@ -21,7 +21,7 @@
         color: #fff;
         margin: 0;
         text-transform: uppercase;
-        font-size: 24px;
+        font-size: 21px;
         font-weight: 700;
         letter-spacing: 2px;
         }
@@ -168,14 +168,14 @@
         <i class="fas fa-bars" id="sidebar_btn"></i>
         </label>
         <div class="left_area">
-        <h3>Delivery Man Dashboard</h3>
+        <h3>Delivery Man</h3>
         </div>
     </header>
     <!--header area end-->
     <!--sidebar start-->
     <div class="sidebar">
-        <a href="/student-dashboard"><i class="fas fa-desktop"></i><span>Order for Blood</span></a>
-        <a href="/student-attendance"><i class="fas fa-address-card"></i><span>Medicines Order</span></a>
+        
+        <a href="{{url('view_all_orders')}}"><i class="fas fa-address-card"></i><span>Medicines Order</span></a>
         <a href="{{url('tip_view')}}"><i class="fas fa-address-card"></i><span>Doctor's Health Tips</span></a>
         <a href="{{url('seminar_view')}}"><i class="fas fa-address-card"></i><span>Seminar</span></a>
     
