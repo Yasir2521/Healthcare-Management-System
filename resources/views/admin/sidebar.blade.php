@@ -82,11 +82,35 @@
             </a>
           </li>
           <li class="nav-item menu-items">
-            <a class="nav-link" href="{{url('doctor_view')}}">
+            <a class="nav-link" href="{{url('admin_view_patient')}}">
+              <span class="menu-icon">
+                <i class="mdi mdi-file-document-box"></i>
+              </span>
+              <span class="menu-title">Patients List</span>
+            </a>
+          </li>
+          <li class="nav-item menu-items">
+            <a class="nav-link" href="{{url('admin_view_doctor')}}">
               <span class="menu-icon">
                 <i class="mdi mdi-file-document-box"></i>
               </span>
               <span class="menu-title">Doctors List</span>
+            </a>
+          </li>
+          <li class="nav-item menu-items">
+            <a class="nav-link" href="{{url('admin_view_deliveryman')}}">
+              <span class="menu-icon">
+                <i class="mdi mdi-file-document-box"></i>
+              </span>
+              <span class="menu-title">Deliverymans List</span>
+            </a>
+          </li>
+          <li class="nav-item menu-items">
+            <a class="nav-link" href="{{url('admin_view_blood')}}">
+              <span class="menu-icon">
+                <i class="mdi mdi-file-document-box"></i>
+              </span>
+              <span class="menu-title">Available Bloods</span>
             </a>
           </li>
           <!-- <li class="nav-item menu-items">
@@ -130,6 +154,14 @@
             </a>
           </li>
           <li class="nav-item menu-items">
+            <a class="nav-link" href="{{url('admin_view_medicine')}}">
+              <span class="menu-icon">
+                <i class="mdi mdi-file-document-box"></i>
+              </span>
+              <span class="menu-title">View Medicines</span>
+            </a>
+          </li>
+          <li class="nav-item menu-items">
             <a class="nav-link" href="{{url('see_review_view')}}">
               <span class="menu-icon">
                 <i class="mdi mdi-file-document-box"></i>
@@ -146,12 +178,28 @@
             </a>
           </li>
           <li class="nav-item menu-items">
+            <a class="nav-link" href="{{url('admin_view_transport')}}">
+              <span class="menu-icon">
+                <i class="mdi mdi-file-document-box"></i>
+              </span>
+              <span class="menu-title">View Transport</span>
+            </a>
+          </li>
+          <li class="nav-item menu-items">
             <a class="nav-link" href="{{url('add_hospital_view')}}">
               <span class="menu-icon">
                 <i class="mdi mdi-file-document-box"></i>
               </span>
               <span class="menu-title">Add Hospital</span>
             </a>
+            <li class="nav-item menu-items">
+            <a class="nav-link" href="{{url('admin_view_hospital')}}">
+              <span class="menu-icon">
+                <i class="mdi mdi-file-document-box"></i>
+              </span>
+              <span class="menu-title">View Hospital</span>
+            </a>
+          </li>
           </li>
         </ul>
       </nav>

@@ -21,9 +21,6 @@ body {
 table {
   width: 100%;
   border-collapse: collapse;
-  background-color: #fff;
-  border-radius: 8px;
-  overflow: hidden;
 }
 
 th, td {
@@ -98,7 +95,7 @@ tr:hover {
 .take-appointment-link {
   display: inline-block;
   padding: 10px 20px;
-  background-color: #007bff;
+  background-color: #FF0000;
   color: #fff;
   text-decoration: none;
   border-radius: 4px;
@@ -117,49 +114,33 @@ tr:hover {
   <table>
     <thead>
       <tr>
-        <th>Doctor's Name</th>
-        <th>Specialty</th>
-        <th>Appointment Days</th> <!-- Changed column name -->
-        <th>Time</th>
+        <th>Patient's Name</th>
+        <th>Patient's Email</th>
+        
         <th>Action</th>
       </tr>
     </thead>
     <tbody>
-      @foreach ($schedule as $schedules)
+    @foreach ($patients as $patient)
         <tr>
-          <td>
-            @if ($schedules->user)
-              {{ $schedules->user->name }}
-            @else
-              No User Assigned
-            @endif
-          </td>
-          <td>{{ $schedules->specialty }}</td>
-          <td>
-            <select>
-              @foreach(json_decode($schedules->appointment_days) as $day)
-                <option>{{ $day }}</option>
-              @endforeach
-            </select>
-          </td>
-          <td>{{ $schedules->time }}</td>
-
-
-          <td><a href="{{ url('/add_appoin') }}?user_id={{ $schedules->user_id }}" class="take-appointment-link">Take Appointment</a></td>
-
+          
+          <td>{{ $patient->name }}</td>
+          <td>{{ $patient->email }}</td>
+          
+          <td><form action="{{ url('/del_patient') }}" method="POST">
+    @csrf
+    <input type="hidden" name="id" value="{{ $patient->id }}">
+    <button type="submit" class="take-appointment-link" onclick="return confirm('Are you sure you want to remove the patient?')">Remove Patient</button>
+</form>
+</td>
         </tr>
       @endforeach
     </tbody>
-  </table>
+  </table><br>
   
   <!-- Button to go back -->
   <a href="{{ url('/home') }}" class="go-back-link">&larr; Go Back</a>
 </div>
 
 </body>
-
-
-
 </html>
-
-

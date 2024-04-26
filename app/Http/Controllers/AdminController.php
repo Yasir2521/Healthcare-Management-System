@@ -570,7 +570,173 @@ public function mark_as_paid(Request $request)
     return redirect()->back()->with('success', 'Payment done successfully.');
 }
 
+public function admin_view_doctor()
+{
 
+
+$doctors = user::where('usertype', '2')->get();
+
+
+return view('admin.view_doctor', ['doctors' => $doctors]);
+}
+
+public function admin_view_deliveryman()
+{
+
+
+$deliverymans = user::where('usertype', '3')->get();
+
+
+return view('admin.view_deliveryman', ['deliverymans' => $deliverymans]);
+}
+
+
+public function del_doctor(Request $request)
+{
+    $id = $request->input('id');
+    // Retrieve the appointment by its ID
+    $doctor = user::findOrFail($id);
+
+    // Delete the appointment
+    $doctor->delete();
+
+    // Redirect back with a success message
+    return redirect()->back()->with('success', 'Doctor Removed Successfully');
+}
+
+
+public function del_deliveryman(Request $request)
+{
+    $id = $request->input('id');
+    // Retrieve the appointment by its ID
+    $deliveryman = user::findOrFail($id);
+
+    // Delete the appointment
+    $deliveryman->delete();
+
+    // Redirect back with a success message
+    return redirect()->back()->with('success', 'Deliveryman Removed Successfully');
+}
+
+
+public function admin_view_patient()
+{
+
+
+$patients = user::where('usertype', '0')->get();
+
+
+return view('admin.view_patient', ['patients' => $patients]);
+}
+
+public function del_patient(Request $request)
+{
+    $id = $request->input('id');
+    // Retrieve the appointment by its ID
+    $patient = user::findOrFail($id);
+
+    // Delete the appointment
+    $patient->delete();
+
+    // Redirect back with a success message
+    return redirect()->back()->with('success', 'Patient Removed Successfully');
+}
+
+
+public function admin_view_blood()
+{
+
+
+$bloods = blood::all();
+
+
+return view('admin.view_blood', ['bloods' => $bloods]);
+}
+
+public function del_blood(Request $request)
+{
+    $id = $request->input('id');
+    // Retrieve the appointment by its ID
+    $blood = blood::findOrFail($id);
+
+    // Delete the appointment
+    $blood->delete();
+
+    // Redirect back with a success message
+    return redirect()->back()->with('success', 'Blood Removed Successfully');
+}
+
+
+public function admin_view_transport()
+{
+
+
+$vehicle = vehicle::all();
+
+
+return view('admin.view_transport', ['vehicle' => $vehicle]);
+}
+
+public function del_transport(Request $request)
+{
+    $id = $request->input('id');
+    // Retrieve the appointment by its ID
+    $transport = vehicle::findOrFail($id);
+
+    // Delete the appointment
+    $transport->delete();
+
+    // Redirect back with a success message
+    return redirect()->back()->with('success', 'Transport Removed Successfully');
+}
+
+
+public function admin_view_hospital()
+{
+
+
+$hospital = hospital::all();
+
+
+return view('admin.view_hospital', ['hospital' => $hospital]);
+}
+
+public function del_hospital(Request $request)
+{
+    $id = $request->input('id');
+    // Retrieve the appointment by its ID
+    $hospital = hospital::findOrFail($id);
+
+    // Delete the appointment
+    $hospital->delete();
+
+    // Redirect back with a success message
+    return redirect()->back()->with('success', 'hospital Removed Successfully');
+}
+
+
+public function admin_view_medicine()
+{
+
+
+$medicine = medi::all();
+
+
+return view('admin.view_medicines', ['add_medicine' => $medicine]);
+}
+
+public function del_medicine(Request $request)
+{
+    $id = $request->input('id');
+    // Retrieve the appointment by its ID
+    $medicine = medi::findOrFail($id);
+
+    // Delete the appointment
+    $medicine->delete();
+
+    // Redirect back with a success message
+    return redirect()->back()->with('success', 'medicine Removed Successfully');
+}
 
 
 

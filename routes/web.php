@@ -136,6 +136,31 @@ Route::get('/view_all_orders',[AdminController::class,'view_all_orders']);
 Route::post('/mark_as_paid',[AdminController::class,'mark_as_paid']);
 
 
+Route::get('/admin_view_doctor',[AdminController::class,'admin_view_doctor']);
+Route::post('/del_doctor',[AdminController::class,'del_doctor']);
+
+Route::get('/admin_view_deliveryman',[AdminController::class,'admin_view_deliveryman']);
+Route::post('/del_deliveryman',[AdminController::class,'del_deliveryman']);
+
+Route::get('/admin_view_patient',[AdminController::class,'admin_view_patient']);
+Route::post('/del_patient',[AdminController::class,'del_patient']);
+
+Route::get('/admin_view_blood',[AdminController::class,'admin_view_blood']);
+Route::post('/del_blood',[AdminController::class,'del_blood']);
+
+Route::get('/admin_view_transport',[AdminController::class,'admin_view_transport']);
+Route::post('/del_transport',[AdminController::class,'del_transport']);
+
+Route::get('/admin_view_hospital',[AdminController::class,'admin_view_hospital']);
+Route::post('/del_hospital',[AdminController::class,'del_hospital']);
+
+
+Route::get('/admin_view_medicine',[AdminController::class,'admin_view_medicine']);
+Route::post('/del_medicine',[AdminController::class,'del_medicine']);
+
+
+
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),

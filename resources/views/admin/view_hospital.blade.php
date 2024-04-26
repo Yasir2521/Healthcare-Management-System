@@ -67,6 +67,7 @@
                 <th>Hospital Name</th>
                 <th>Hospital Location</th> <!-- Change to the appropriate field -->
                 <th>Hospital Website</th> <!-- Change to the appropriate field -->
+                <th>Action</th>
                 
                  
                 
@@ -80,7 +81,13 @@
 
                     <td><a href="{{ $hospitals->website }}">{{ $hospitals->website }}</a></td>
 
-                    
+                    <td><form action="{{ url('/del_hospital') }}" method="POST">
+                        @csrf
+                        <input type="hidden" name="id" value="{{ $hospitals->id }}">
+                        <button type="submit" class="take-appointment-link" onclick="return confirm('Are you sure you want to remove the hospital?')">Remove Hospital</button>
+                    </form>
+                    </td>
+            
 
 
             

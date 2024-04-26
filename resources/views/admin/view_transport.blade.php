@@ -60,29 +60,32 @@
 <body>
 
 <div class="container">
-    <h1>Hospital's List</h1>
+    <h1>Vehicles List</h1>
     <table class="table">
         <thead>
             <tr>
-                <th>Hospital Name</th>
-                <th>Hospital Location</th> <!-- Change to the appropriate field -->
-                <th>Hospital Website</th> <!-- Change to the appropriate field -->
+                <th>Vehicle Type</th>
+                <th>Phone Number</th> <!-- Change to the appropriate field -->
+                <th>Vehicle NO.</th> <!-- Change to the appropriate field -->
+                <th>Action</th>
                 
                  
                 
             </tr>
         </thead>
         <tbody>
-            @foreach ($hospital as $hospitals)
+            @foreach ($vehicle as $vehicles)
                 <tr>
-                    <td>{{ $hospitals->name }}</td>
-                    <td>{{ $hospitals->location }}</td>
+                    <td>{{ $vehicles->type }}</td>
+                    <td>{{ $vehicles->phone }}</td>
+                    <td>{{ $vehicles->number }}</td>
 
-                    <td><a href="{{ $hospitals->website }}">{{ $hospitals->website }}</a></td>
-
-                    
-
-
+                    <td><form action="{{ url('/del_transport') }}" method="POST">
+                        @csrf
+                        <input type="hidden" name="id" value="{{ $vehicles->id }}">
+                        <button type="submit" class="take-appointment-link" onclick="return confirm('Are you sure you want to remove the transport?')">Remove Transport</button>
+                    </form>
+                    </td>
             
                     
                     <!-- Add more columns as needed -->
